@@ -1,0 +1,1609 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/21/2020 8:20:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VTCGGJP"
+  DTS:CreatorName="DESKTOP-VTCGGJP\Administrator"
+  DTS:DTSID="{F0DABB24-FA78-4EE0-942C-738418E22E2B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_QuickenLoan"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{6F463A8B-2278-490D-A00F-CC9A3BA0190A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7705A059-8D3A-444B-B9FD-1B3DA35C0759}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_QuickenLoan_SalesForce"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F31ED55B-8B0E-4289-A980-14EF047AD44F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_QuickenLoan_SalesForce"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2020 KingswaySoft Inc."
+              description="Extract data from Salesforce."
+              name="Salesforce Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Salesforce"
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Salesforce.SalesforceSourceType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Salesforce object to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceObject">Quicken_Loans__c</property>
+                <property
+                  dataType="System.String"
+                  description="Salesforce object query statement."
+                  expressionType="Notify"
+                  name="ObjectQuery"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether deleted or archived records should be returned."
+                  expressionType="Notify"
+                  name="IncludeDeletedArchived">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to use Salesforce Bulk API to read data."
+                  expressionType="Notify"
+                  name="UseBulkApi">false</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for Salesforce datetime values."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.Salesforce.SfdcSourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  description="Specify the PK Chunking Header that helps with Bulk API data read performance."
+                  expressionType="Notify"
+                  name="PKChunkingHeader"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.Salesforce.SalesforceSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Connections[Salesforce]"
+                  connectionManagerID="{AC93CB55-B351-4244-912E-F847D759A9A2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Salesforce Connection Manager]"
+                  description="Salesforce Connection"
+                  name="Salesforce" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output]"
+                  name="Salesforce Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ActualClosingDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ActualClosingDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ActualClosingDate__c]"
+                      name="ActualClosingDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AmortizationType__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AmortizationType__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AmortizationType__c]"
+                      name="AmortizationType__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AnnualPercentageRate__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AnnualPercentageRate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AnnualPercentageRate__c]"
+                      name="AnnualPercentageRate__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationDate__c]"
+                      name="ApplicationDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationReturnedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationReturnedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationReturnedDate__c]"
+                      name="ApplicationReturnedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationStartedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationStartedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApplicationStartedDate__c]"
+                      name="ApplicationStartedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AppraisedValue__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AppraisedValue__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[AppraisedValue__c]"
+                      name="AppraisedValue__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApprovalDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApprovalDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApprovalDate__c]"
+                      name="ApprovalDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApprovalStatus__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApprovalStatus__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ApprovalStatus__c]"
+                      name="ApprovalStatus__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrAddress__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrAddress__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrAddress__c]"
+                      name="BorrAddress__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrBirthDate__c]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrBirthDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrBirthDate__c]"
+                      name="BorrBirthDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrCity__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrCity__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrCity__c]"
+                      name="BorrCity__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrEmailAddress__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrEmailAddress__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrEmailAddress__c]"
+                      name="BorrEmailAddress__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrFirstName__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrFirstName__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrFirstName__c]"
+                      name="BorrFirstName__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrGender__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrGender__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrGender__c]"
+                      name="BorrGender__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrLastName__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrLastName__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrLastName__c]"
+                      name="BorrLastName__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrNoYearsOnJob__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrNoYearsOnJob__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrNoYearsOnJob__c]"
+                      name="BorrNoYearsOnJob__c"
+                      precision="13"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrState__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrState__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrState__c]"
+                      name="BorrState__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrTotalIncome__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrTotalIncome__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrTotalIncome__c]"
+                      name="BorrTotalIncome__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrZip__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrZip__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BorrZip__c]"
+                      name="BorrZip__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BottomQualificationRatios__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BottomQualificationRatios__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[BottomQualificationRatios__c]"
+                      name="BottomQualificationRatios__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CloserName__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CloserName__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CloserName__c]"
+                      name="CloserName__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ClosingDisclosureRecievedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ClosingDisclosureRecievedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ClosingDisclosureRecievedDate__c]"
+                      name="ClosingDisclosureRecievedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CombinedLoanToValueRatio__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CombinedLoanToValueRatio__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CombinedLoanToValueRatio__c]"
+                      name="CombinedLoanToValueRatio__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ConditionalApprovalDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ConditionalApprovalDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ConditionalApprovalDate__c]"
+                      name="ConditionalApprovalDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ConditionsReceivedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ConditionsReceivedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ConditionsReceivedDate__c]"
+                      name="ConditionsReceivedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreatedById]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
+                      length="18"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreatedById]"
+                      name="CreatedById"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreditPullDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreditPullDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CreditPullDate__c]"
+                      name="CreditPullDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CurrentMilestone__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CurrentMilestone__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CurrentMilestone__c]"
+                      name="CurrentMilestone__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CurrentMilestoneTrackingDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CurrentMilestoneTrackingDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[CurrentMilestoneTrackingDate__c]"
+                      name="CurrentMilestoneTrackingDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DenialDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DenialDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DenialDate__c]"
+                      name="DenialDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DisbursementDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DisbursementDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DisbursementDate__c]"
+                      name="DisbursementDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentPreparedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentPreparedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentPreparedDate__c]"
+                      name="DocumentPreparedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentResubmittedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentResubmittedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentResubmittedDate__c]"
+                      name="DocumentResubmittedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentReviewedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentReviewedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentReviewedDate__c]"
+                      name="DocumentReviewedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentShippingDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentShippingDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentShippingDate__c]"
+                      name="DocumentShippingDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentSigningDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentSigningDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentSigningDate__c]"
+                      name="DocumentSigningDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentSubmittalDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentSubmittalDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[DocumentSubmittalDate__c]"
+                      name="DocumentSubmittalDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[EstimatedLoanClosingDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[EstimatedLoanClosingDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[EstimatedLoanClosingDate__c]"
+                      name="EstimatedLoanClosingDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FinalDocumentDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FinalDocumentDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FinalDocumentDate__c]"
+                      name="FinalDocumentDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FinallCreditScore__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FinallCreditScore__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FinallCreditScore__c]"
+                      name="FinallCreditScore__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FundedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FundedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[FundedDate__c]"
+                      name="FundedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleState__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleState__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleState__c]"
+                      name="HouseOnSaleState__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleStreet__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleStreet__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleStreet__c]"
+                      name="HouseOnSaleStreet__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleZip__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleZip__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[HouseOnSaleZip__c]"
+                      name="HouseOnSaleZip__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[Id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[Id]"
+                      length="18"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialClosingDisclosureSentDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialClosingDisclosureSentDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialClosingDisclosureSentDate__c]"
+                      name="InitialClosingDisclosureSentDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialDisclosureProvidedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialDisclosureProvidedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialDisclosureProvidedDate__c]"
+                      name="InitialDisclosureProvidedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialLoanEstimateDueDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialLoanEstimateDueDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialLoanEstimateDueDate__c]"
+                      name="InitialLoanEstimateDueDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialLoanEstimateSentDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialLoanEstimateSentDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InitialLoanEstimateSentDate__c]"
+                      name="InitialLoanEstimateSentDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InterestRate__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InterestRate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[InterestRate__c]"
+                      name="InterestRate__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IntialLoanAmount__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IntialLoanAmount__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IntialLoanAmount__c]"
+                      name="IntialLoanAmount__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsBorrSelfEmployeedFlag__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsBorrSelfEmployeedFlag__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsBorrSelfEmployeedFlag__c]"
+                      name="IsBorrSelfEmployeedFlag__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsConstructionLoan__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsConstructionLoan__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsConstructionLoan__c]"
+                      name="IsConstructionLoan__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsDeleted]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[IsDeleted]"
+                      name="IsDeleted"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastActivityDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastActivityDate]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastActivityDate]"
+                      name="LastActivityDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastLoadDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastLoadDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastLoadDate__c]"
+                      name="LastLoadDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedById]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedById]"
+                      length="18"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedById]"
+                      name="LastModifiedById"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedDate]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate]"
+                      name="LastModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]"
+                      name="LastModifiedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastReferencedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastReferencedDate]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastReferencedDate]"
+                      name="LastReferencedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastViewedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastViewedDate]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastViewedDate]"
+                      name="LastViewedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadDate__c]"
+                      name="LeadDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadId__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadId__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadId__c]"
+                      name="LeadId__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadSource__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadSource__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LeadSource__c]"
+                      name="LeadSource__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanExpirationDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanExpirationDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanExpirationDate__c]"
+                      name="LoanExpirationDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanID__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanID__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanID__c]"
+                      name="LoanID__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanInformationDocumentDate__c]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanInformationDocumentDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanInformationDocumentDate__c]"
+                      name="LoanInformationDocumentDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanOfficer__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanOfficer__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanOfficer__c]"
+                      name="LoanOfficer__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanOfficerEmail__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanOfficerEmail__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanOfficerEmail__c]"
+                      name="LoanOfficerEmail__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanProcessorName__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanProcessorName__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanProcessorName__c]"
+                      name="LoanProcessorName__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanProgram__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanProgram__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanProgram__c]"
+                      name="LoanProgram__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanPurpose__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanPurpose__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanPurpose__c]"
+                      name="LoanPurpose__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanSetupDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanSetupDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanSetupDate__c]"
+                      name="LoanSetupDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanStatus__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanStatus__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanStatus__c]"
+                      name="LoanStatus__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanStatusActionDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanStatusActionDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanStatusActionDate__c]"
+                      name="LoanStatusActionDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanTerm__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanTerm__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanTerm__c]"
+                      name="LoanTerm__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanToValueRatio__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanToValueRatio__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanToValueRatio__c]"
+                      name="LoanToValueRatio__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanType__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanType__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LoanType__c]"
+                      name="LoanType__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LockDate__c]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LockDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LockDate__c]"
+                      name="LockDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LockExpireDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LockExpireDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[LockExpireDate__c]"
+                      name="LockExpireDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MarketSource__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MarketSource__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MarketSource__c]"
+                      name="MarketSource__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MilestoneStatus__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MilestoneStatus__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MilestoneStatus__c]"
+                      name="MilestoneStatus__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MortgageInsuranceCompany__c]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MortgageInsuranceCompany__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MortgageInsuranceCompany__c]"
+                      name="MortgageInsuranceCompany__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[Name]"
+                      length="80"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[NetBuyPrice__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[NetBuyPrice__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[NetBuyPrice__c]"
+                      name="NetBuyPrice__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OfficeID__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OfficeID__c]"
+                      length="50"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OfficeID__c]"
+                      name="OfficeID__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OriginationFee__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OriginationFee__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OriginationFee__c]"
+                      name="OriginationFee__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OwnerId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OwnerId]"
+                      length="18"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[OwnerId]"
+                      name="OwnerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ProcessingDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ProcessingDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[ProcessingDate__c]"
+                      name="ProcessingDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[PropertyOccupancyType__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[PropertyOccupancyType__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[PropertyOccupancyType__c]"
+                      name="PropertyOccupancyType__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[QAFailDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[QAFailDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[QAFailDate__c]"
+                      name="QAFailDate__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[QAStatus__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[QAStatus__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[QAStatus__c]"
+                      name="QAStatus__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[SystemModstamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[SystemModstamp]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[SystemModstamp]"
+                      name="SystemModstamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TopQualificationRatios__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TopQualificationRatios__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TopQualificationRatios__c]"
+                      name="TopQualificationRatios__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TotalFees__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TotalFees__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TotalFees__c]"
+                      name="TotalFees__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TotalLoanAmt__c]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TotalLoanAmt__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[TotalLoanAmt__c]"
+                      name="TotalLoanAmt__c"
+                      precision="17"
+                      scale="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwriterName__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwriterName__c]"
+                      length="100"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwriterName__c]"
+                      name="UnderwriterName__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwriterRiskAssess__c]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwriterRiskAssess__c]"
+                      length="255"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwriterRiskAssess__c]"
+                      name="UnderwriterRiskAssess__c"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwritingReceivedDate__c]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwritingReceivedDate__c]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[UnderwritingReceivedDate__c]"
+                      name="UnderwritingReceivedDate__c"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ActualClosingDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ActualClosingDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AmortizationType__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="AmortizationType__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AnnualPercentageRate__c]"
+                      dataType="numeric"
+                      name="AnnualPercentageRate__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationReturnedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationReturnedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApplicationStartedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationStartedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[AppraisedValue__c]"
+                      dataType="numeric"
+                      name="AppraisedValue__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApprovalDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ApprovalDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ApprovalStatus__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="ApprovalStatus__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrAddress__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="BorrAddress__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrBirthDate__c]"
+                      dataType="dbDate"
+                      name="BorrBirthDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrCity__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrCity__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrEmailAddress__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrEmailAddress__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrFirstName__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrFirstName__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrGender__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrGender__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrLastName__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrLastName__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrNoYearsOnJob__c]"
+                      dataType="numeric"
+                      name="BorrNoYearsOnJob__c"
+                      precision="13"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrState__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="BorrState__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrTotalIncome__c]"
+                      dataType="numeric"
+                      name="BorrTotalIncome__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BorrZip__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="BorrZip__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[BottomQualificationRatios__c]"
+                      dataType="numeric"
+                      name="BottomQualificationRatios__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CloserName__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="CloserName__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ClosingDisclosureRecievedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ClosingDisclosureRecievedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CombinedLoanToValueRatio__c]"
+                      dataType="numeric"
+                      name="CombinedLoanToValueRatio__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ConditionalApprovalDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ConditionalApprovalDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ConditionsReceivedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ConditionsReceivedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
+                      dataType="wstr"
+                      length="18"
+                      name="CreatedById" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CreditPullDate__c]"
+                      dataType="dbTimeStamp"
+                      name="CreditPullDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CurrentMilestone__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="CurrentMilestone__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[CurrentMilestoneTrackingDate__c]"
+                      dataType="dbTimeStamp"
+                      name="CurrentMilestoneTrackingDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DenialDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DenialDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DisbursementDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DisbursementDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentPreparedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentPreparedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentResubmittedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentResubmittedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentReviewedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentReviewedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentShippingDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentShippingDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentSigningDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentSigningDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[DocumentSubmittalDate__c]"
+                      dataType="dbTimeStamp"
+                      name="DocumentSubmittalDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[EstimatedLoanClosingDate__c]"
+                      dataType="dbTimeStamp"
+                      name="EstimatedLoanClosingDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FinalDocumentDate__c]"
+                      dataType="dbTimeStamp"
+                      name="FinalDocumentDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FinallCreditScore__c]"
+                      dataType="numeric"
+                      name="FinallCreditScore__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[FundedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="FundedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleState__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="HouseOnSaleState__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleStreet__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="HouseOnSaleStreet__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[HouseOnSaleZip__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="HouseOnSaleZip__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[Id]"
+                      dataType="wstr"
+                      length="18"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialClosingDisclosureSentDate__c]"
+                      dataType="dbTimeStamp"
+                      name="InitialClosingDisclosureSentDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialDisclosureProvidedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="InitialDisclosureProvidedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialLoanEstimateDueDate__c]"
+                      dataType="dbTimeStamp"
+                      name="InitialLoanEstimateDueDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InitialLoanEstimateSentDate__c]"
+                      dataType="dbTimeStamp"
+                      name="InitialLoanEstimateSentDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[InterestRate__c]"
+                      dataType="numeric"
+                      name="InterestRate__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IntialLoanAmount__c]"
+                      dataType="numeric"
+                      name="IntialLoanAmount__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsBorrSelfEmployeedFlag__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="IsBorrSelfEmployeedFlag__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsConstructionLoan__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="IsConstructionLoan__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
+                      dataType="bool"
+                      name="IsDeleted" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastActivityDate]"
+                      dataType="dbDate"
+                      name="LastActivityDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastLoadDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LastLoadDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedById]"
+                      dataType="wstr"
+                      length="18"
+                      name="LastModifiedById" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="LastModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastModifiedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LastModifiedDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastReferencedDate]"
+                      dataType="dbTimeStamp"
+                      name="LastReferencedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LastViewedDate]"
+                      dataType="dbTimeStamp"
+                      name="LastViewedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LeadDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadId__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="LeadId__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LeadSource__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="LeadSource__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanExpirationDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LoanExpirationDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanID__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanID__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanInformationDocumentDate__c]"
+                      dataType="dbDate"
+                      name="LoanInformationDocumentDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanOfficer__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanOfficer__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanOfficerEmail__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanOfficerEmail__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanProcessorName__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanProcessorName__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanProgram__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="LoanProgram__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanPurpose__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="LoanPurpose__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanSetupDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LoanSetupDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanStatus__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanStatus__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanStatusActionDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LoanStatusActionDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanTerm__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="LoanTerm__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanToValueRatio__c]"
+                      dataType="numeric"
+                      name="LoanToValueRatio__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LoanType__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="LoanType__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LockDate__c]"
+                      dataType="dbDate"
+                      name="LockDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[LockExpireDate__c]"
+                      dataType="dbTimeStamp"
+                      name="LockExpireDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MarketSource__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="MarketSource__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MilestoneStatus__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="MilestoneStatus__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[MortgageInsuranceCompany__c]"
+                      dataType="nText"
+                      name="MortgageInsuranceCompany__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="80"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[NetBuyPrice__c]"
+                      dataType="numeric"
+                      name="NetBuyPrice__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OfficeID__c]"
+                      dataType="wstr"
+                      length="50"
+                      name="OfficeID__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OriginationFee__c]"
+                      dataType="numeric"
+                      name="OriginationFee__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[OwnerId]"
+                      dataType="wstr"
+                      length="18"
+                      name="OwnerId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[ProcessingDate__c]"
+                      dataType="dbTimeStamp"
+                      name="ProcessingDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[PropertyOccupancyType__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="PropertyOccupancyType__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[QAFailDate__c]"
+                      dataType="dbTimeStamp"
+                      name="QAFailDate__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[QAStatus__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="QAStatus__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[SystemModstamp]"
+                      dataType="dbTimeStamp"
+                      name="SystemModstamp" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TopQualificationRatios__c]"
+                      dataType="numeric"
+                      name="TopQualificationRatios__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TotalFees__c]"
+                      dataType="numeric"
+                      name="TotalFees__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[TotalLoanAmt__c]"
+                      dataType="numeric"
+                      name="TotalLoanAmt__c"
+                      precision="17"
+                      scale="5" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwriterName__c]"
+                      dataType="wstr"
+                      length="100"
+                      name="UnderwriterName__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwriterRiskAssess__c]"
+                      dataType="wstr"
+                      length="255"
+                      name="UnderwriterRiskAssess__c" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].ExternalColumns[UnderwritingReceivedDate__c]"
+                      dataType="dbTimeStamp"
+                      name="UnderwritingReceivedDate__c" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\DFT_QuickenLoan_SalesForce"
+          TopLeft="395.71429245326,50.4705889431251" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_QuickenLoan_SalesForce">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\DFT_QuickenLoan_SalesForce\Salesforce Source"
+          TopLeft="308.571433826369,52.0000007292803" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
