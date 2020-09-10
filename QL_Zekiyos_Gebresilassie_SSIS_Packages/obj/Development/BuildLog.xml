@@ -2,23 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Zekiyos_Gebresilassie_SSIS_Packages</Name>
-    <LastWriteTime>2020-08-30T23:10:17.9223232Z</LastWriteTime>
+    <LastWriteTime>2020-09-09T00:34:49.7882296Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_LendingQB.dtsx</Name>
-      <LastWriteTime>2020-08-31T00:42:48.1564798Z</LastWriteTime>
+      <LastWriteTime>2020-09-09T05:17:06.8663348Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx</Name>
       <LastWriteTime>2020-08-24T04:58:22.0368052Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx</Name>
-      <LastWriteTime>2020-08-26T18:13:31.9238265Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -37,13 +32,13 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_Quicken_Loans_Master.dtsx</Name>
-      <LastWriteTime>2020-08-26T22:06:30.2066226Z</LastWriteTime>
+      <Name>Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx</Name>
+      <LastWriteTime>2020-09-07T22:20:04.4179743Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Pkg_QL_zekiyos_Gebresilassie_SSIS_package.dtsx</Name>
-      <LastWriteTime>2020-08-29T23:35:15.2939392Z</LastWriteTime>
+      <Name>Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx</Name>
+      <LastWriteTime>2020-09-09T06:11:19.2655288Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

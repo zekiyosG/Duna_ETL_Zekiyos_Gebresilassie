@@ -3,6 +3,8 @@
   DTS:ObjectName="LocalHost.QLSSISLOG"
   DTS:DTSID="{0B91955D-7C94-43E6-8597-441CA70EC677}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::LocalHostQLSSISLOG_ConnectionString]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="Data Source=.;Initial Catalog=QLSSISLOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />

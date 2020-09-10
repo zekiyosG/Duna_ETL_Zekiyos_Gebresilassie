@@ -26,18 +26,17 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-VTCGGJP</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAT/smQhj0mUGmI9j7CtxFRgAAAAACAAAAAAAQZgAAAAEAACAAAADSQV7tQiJE0zreHRkArIUe66l2DILZJo6PuGigeHnuEgAAAAAOgAAAAAIAACAAAABHa7VHkC3QEkw+eVeyeUGw/iq5eqj+Gh0iF//LngPQRZAAAABK2rsd/ENcj2gWtXV/Jp/HbKgeh+VgyvJvhajzQaEGAlUudx6uekBkuivNMKwuE5gBLfZGFX/T+R9uyaLToF5pJ3ygsJMkCm9DxJUYX4H2BwwKjgSkXzle8qacO1CfJ5AMX5UbyM9N7fon5PO/Z6NssF34Hgm3OCCaVwdkPmLIiLpcnjc54W+NcIY52Dz+vwBAAAAAKKBi4jsG8i+KMNsRSlfWQ6rDnZJOHhhGX57tduVMreheJH+lbc8BCvuduMGKK3sDxY1lhKouPnhMqYrrFGa3PQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAACAAAAAAAQZgAAAAEAACAAAACKplTFZP9h4qjtqWVFBAvFTQzYLRCDPFme22UBAIAl9wAAAAAOgAAAAAIAACAAAAB1tA7Nq5HvLBDDQE9Kfu5VfdVMNgfR8W3vzAlYC37NUJAAAADaqlCVvdUOxPnPrE200x0FuDp13Lo1l0aMa7JDn27QRpFGYXjpwimcOlRG9atlT7hkBsAVL9VXd9X/1UlC+wdyH1ELBEGpshXGtXAxkpXQ5q11rREEinwGFmVa/cK9fL6UJuzNIK/BW5/Htef5tqi6rIJXjNt3v/fZRVu+BXucwh/iX/KDC38A3mOllKPZT31AAAAAattDL9ODHvzeDeOlscqzgUO0ddfT3M5TZHC2x8uRb0fgyuQmjLC+j2U7MpoUr6walSGekjwil3UOjSAj97wP5g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_LendingQB.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_LendingPad.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_SimpleNexus.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_UberWriter.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_Quicken_Loans_Master.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Pkg_QL_zekiyos_Gebresilassie_SSIS_package.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Salesforce.conmgr" />
@@ -656,7 +655,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Service Document Url=https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie="SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjgsMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAwNDUzOWU4OWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfHNoYXJlcG9pbnRAZHVuYXRrLmNvbSwxMzI0MzI5ODk5NTAwMDAwMDAsMTMyNDIxNzU3MDQwMDAwMDAwLDEzMjQzMzg1Mzk1MjY5NzEwMiwwLjAuMC4wLDQsODVkZGY3ZTktODA2OC00YmI2LTg5NzktNDQ3NjE0NDJlMzlhLCwsODQzOTc1OWYtNjBjMS0wMDAwLTU2YmQtNTBlNDQxZjRhZDk4LDg0Mzk3NTlmLTYwYzEtMDAwMC01NmJkLTUwZTQ0MWY0YWQ5OCwsMCwwLDAsLCwsMjY1MDQ2Nzc0Mzk5OTk5OTk5OSwwLCxwVzZ0dUxlVWlDWTZTa29EbVBKbDl3STZsS0d1WW9hcXBpc3pLTzZXeG0zd255eVZnMHNUN29MZXU4aWJid1NHdjNwQ2U5SklUa0V1VWpHdEhCOFlwOFFnUmpiZkI3b0Mxblk5blEwazNxOHAvRVFUaVF2c3V0b3JrVnA3M0l4Y3FqY01naGFPMi93NTRRTzlIS2lnRDJJZDFnK0pXYmdFcCt4RVE2ci9Xc0V2Wmh5WkFqaTl4NDdjcU0yUlFORnR0UkRTQnZaQlk5cldza2hUdmI4TWgwU1hJdEsvN0RTbkNUNExvOVRmeUQwQXR1eVBYeHR2QVFNNFNKSStla1ByQ1p1TzVlL21PcFhwTXc3Y0s2N3NabUNseEpUblA1eWY0MDFIcGRobkN2b2lYYU9uWmpNV2diajBUcC80YlpNNmxLbFhYbGMzODRWd2JsWUhNTUNmL0E9PTwvU1A+";User ID=sharepoint@dunatk.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=True;Max Received Message Size=4398046511104</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Service Document Url=https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie="SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjgsMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAwNDUzOWU4OWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfHNoYXJlcG9pbnRAZHVuYXRrLmNvbSwxMzI0NDA4NTI3MjAwMDAwMDAsMTMyNDIxNzU3MDQwMDAwMDAwLDEzMjQ0MTcxNjcyOTM5OTgzOCwwLjAuMC4wLDQsODVkZGY3ZTktODA2OC00YmI2LTg5NzktNDQ3NjE0NDJlMzlhLCwsNWYyNzc4OWYtZDAxMi0wMDAwLTYzZDAtYzY5ZGNkZWE5ZjA3LDVmMjc3ODlmLWQwMTItMDAwMC02M2QwLWM2OWRjZGVhOWYwNywsMCwwLDAsLCwsMjY1MDQ2Nzc0Mzk5OTk5OTk5OSwwLCxIWEo3MVhqK2RlYWh1Y2xHZlU0Unk0cGtCRER0WFp3YStVWHZKckZac2paSlZDMjd3d085c3ZIUEs5NGxTL2pmZjN4N1IvWGM3UjN6ei9ybFNYcW1KVjFxdE9Sd3hOdnppOXpLVlBLTWpzLysxMFN1ek4xYUF6UHcwZGxNd2JXQkZZNkFMbDF3UHBwUlJJaE5NSGtFNVd5RHpxa3ZwQS84RTVtREs5ZlMrc0R5NVVwVEEzbk1WMXE5K0NlZGNqZVlYMjBSV0hITExTMU90T0xTWWJhRDZvejNDUitocUs5aXBzUUlEeFg1ZDVEdjl2SjA1blFRdlRGbWU2Qk0zWnlGdkU4amJCcmhmRVl0M24wWGFXNnM1U2hOY3Y2b2xza0FENnRhMkV0UVZGT1pMQUpwandCTzc2Z2t4QVFZWWM1RStSdDdMelJsVnV4OWdqblhlOGVIQUE9PTwvU1A+";User ID=sharepoint@dunatk.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=True;Max Received Message Size=4398046511104</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -712,135 +711,16 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">165</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">311</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{AD92A407-22C3-4C75-976E-3C657782CD27}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E5F3AC2F-63F7-4910-A418-0490B561255A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.ConnectByProxy">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=STGQL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.ConnectUsingManagedIdentity">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.InitialCatalog">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">STGQL</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.Password">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.RetainSameConnection">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.ServerName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">.</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.STGQL 1.UserName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx">
               <SSIS:Properties>
@@ -852,23 +732,6 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{8CB34046-F14A-4E1C-AC93-828BC503086B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{F0DABB24-FA78-4EE0-942C-738418E22E2B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Pkg_Zekiyos_Gebresilassie_QuickenLoan</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">13</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{6F463A8B-2278-490D-A00F-CC9A3BA0190A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -927,16 +790,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_Quicken_Loans_Master.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{6B866F0B-9EF0-443C-B89A-23221C614279}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{753B08A1-9091-4B90-B380-684046CB3B53}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">20</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{6391FFCE-3789-4B76-B5AF-A07D6B5B28B6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D39273DE-154D-4BBB-A064-6BE289CDDEC8}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1063,16 +926,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Pkg_QL_zekiyos_Gebresilassie_SSIS_package.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{EFF22AB1-722C-45AA-B43C-E16C2BCEFCEA}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{92DC8059-25A8-4937-A953-8AB14ABC9684}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Pkg_Zekiyos_Gebresilassie_QuickenLoan1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">313</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8780DD4D-3AA6-45B4-B017-44EDFD11F77C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5B520D2A-DA38-4C09-A245-4DDE49E6B386}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

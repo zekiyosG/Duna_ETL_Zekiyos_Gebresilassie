@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-VTCGGJP"
   DTS:CreatorName="DESKTOP-VTCGGJP\Administrator"
-  DTS:DTSID="{6B866F0B-9EF0-443C-B89A-23221C614279}"
+  DTS:DTSID="{753B08A1-9091-4B90-B380-684046CB3B53}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{6391FFCE-3789-4B76-B5AF-A07D6B5B28B6}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{D39273DE-154D-4BBB-A064-6BE289CDDEC8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -233,136 +233,6 @@
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:EventHandlers>
-    <DTS:EventHandler
-      DTS:refId="Package.EventHandlers[OnError]"
-      DTS:CreationName="OnError"
-      DTS:DTSID="{B890F44E-7398-4015-B0B3-ED0AFB307CD4}"
-      DTS:EventID="0"
-      DTS:EventName="OnError"
-      DTS:LocaleID="-1">
-      <DTS:Variables>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:Description="The propagate property of the event"
-          DTS:DTSID="{CBA5C434-DEAE-4E2E-9613-A3C8993F87DE}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="System"
-          DTS:ObjectName="Propagate">
-          <DTS:VariableValue
-            DTS:DataType="11">-1</DTS:VariableValue>
-        </DTS:Variable>
-      </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{cfa3ef58-c837-4c52-8191-cb7b71061226}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{094B3B56-D158-4654-865F-084B75ED24CF}"
-              SQLTask:SqlStatementSource="insert into Quicken_Loans_ETL_Error_Log(&#xA; PackageID uniqueidentifier,&#xA; PackageName Varchar(500),&#xA; SourceName Varchar(100),&#xA; ErrorCode Varchar(100),&#xA; ErrorDescription Varchar(Max))&#xA;values(?,?,?,?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::PackageName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::NameOfDataSource"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="System::ErrorCode"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="System::ErrorDescription"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnError]\Send Mail Task"
-          DTS:CreationName="Microsoft.SendMailTask"
-          DTS:Description="Send Mail Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{5FE705E1-1E82-4302-BE99-AE925834F55E}"
-          DTS:ExecutableType="Microsoft.SendMailTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Send Mail Task"
-          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:PropertyExpression
-            DTS:Name="FromLine">@[User::VarFromEmail]</DTS:PropertyExpression>
-          <DTS:PropertyExpression
-            DTS:Name="MessageSource">(DT_WSTR,100) @[User::VarTimeStamp]+"    " + @[System::ErrorDescription]</DTS:PropertyExpression>
-          <DTS:PropertyExpression
-            DTS:Name="ToLine">@[User::VarToEmail]</DTS:PropertyExpression>
-          <DTS:ObjectData>
-            <SendMailTask:SendMailTaskData
-              SendMailTask:SMTPServer="smtp.gmail.com"
-              SendMailTask:From="qletlteam@gmail.com"
-              SendMailTask:To="qletlteam@gmail.com"
-              SendMailTask:Subject="Quicken Loan ETL Error"
-              SendMailTask:MessageSourceType="Variable"
-              SendMailTask:MessageSource="8/21/2020 9:20:15 PM    " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{FBF21627-CEEE-4514-B71B-34B2D66D718F}"
-          DTS:From="Package.EventHandlers[OnError]\Execute SQL Task"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package.EventHandlers[OnError]\Send Mail Task" />
-      </DTS:PrecedenceConstraints>
-    </DTS:EventHandler>
-    <DTS:EventHandler
-      DTS:refId="Package.EventHandlers[OnInformation]"
-      DTS:CreationName="OnInformation"
-      DTS:DTSID="{9611CAEA-01D2-44BC-8C08-4A9A38355A09}"
-      DTS:EventID="6946927"
-      DTS:EventName="OnInformation"
-      DTS:LocaleID="-1">
-      <DTS:Variables>
-        <DTS:Variable
-          DTS:CreationName=""
-          DTS:Description="The propagate property of the event"
-          DTS:DTSID="{EEA23265-15EA-4951-B3ED-291AC8A6C3E4}"
-          DTS:IncludeInDebugDump="6789"
-          DTS:Namespace="System"
-          DTS:ObjectName="Propagate">
-          <DTS:VariableValue
-            DTS:DataType="11">-1</DTS:VariableValue>
-        </DTS:Variable>
-      </DTS:Variables>
-      <DTS:Executables />
-    </DTS:EventHandler>
-  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -389,43 +259,5 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="506,13" />
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package.EventHandlers[OnError]\Send Mail Task"
-          TopLeft="511,99" />
-        <EdgeLayout
-          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
-          TopLeft="586.3,54.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.4"
-              Start="0,0"
-              End="0,36.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
