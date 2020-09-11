@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_QuickenLoan1"
   DTS:PackageType="5"
-  DTS:VersionBuild="327"
-  DTS:VersionGUID="{9352B859-2AEA-4477-B6DD-84EE742972D1}">
+  DTS:VersionBuild="331"
+  DTS:VersionGUID="{E5DDEE8D-81C3-4CFF-9AA4-025499FA3363}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/08 23:11:25  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/10 21:41:11  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -85,7 +85,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/8/2020 11:11:25 PM</DTS:VariableValue>
+        DTS:DataType="7">9/10/2020 9:41:12 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -143,135 +143,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="CondSplt_Remove_test"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input].Columns[D_BorrFirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="D_BorrFirstName"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrFirstName]" />
-                    <inputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input].Columns[D_BorrisLastName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="D_BorrisLastName"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrisLastName]" />
-                    <inputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LastModifiedDate__c"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Ignore]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Ignore"
-                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[TRIM](#{Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrFirstName]}) == "test" || [TRIM](#{Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrisLastName]}) == "test"</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">TRIM(D_BorrFirstName) == "test" || TRIM(D_BorrisLastName) == "test"</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Ignor]"
-                  description="Output 2 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Ignor"
-                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]} &lt; @[User::VarMaxLastModifiedDate]</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">LastModifiedDate__c &lt; @[User::VarMaxLastModifiedDate]</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">1</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Take]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Take"
-                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\DFT_QuickenLoan_SharePoint\DC_Insurance_Company"
               componentClassID="Microsoft.DerivedColumn"
@@ -13405,6 +13276,135 @@ where [refTable].[MarketSourceCode] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove_test &amp; IncrementalLoad"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input].Columns[D_BorrFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="D_BorrFirstName"
+                      lineageId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrFirstName]" />
+                    <inputColumn
+                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input].Columns[D_BorrisLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="D_BorrisLastName"
+                      lineageId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrisLastName]" />
+                    <inputColumn
+                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastModifiedDate__c"
+                      lineageId="Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Ignore]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Ignore"
+                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[TRIM](#{Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrFirstName]}) == "test" || [TRIM](#{Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrisLastName]}) == "test"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">TRIM(D_BorrFirstName) == "test" || TRIM(D_BorrisLastName) == "test"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Ignor]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Ignor"
+                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]} &lt; @[User::VarMaxLastModifiedDate]</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LastModifiedDate__c &lt; @[User::VarMaxLastModifiedDate]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Take]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Take"
+                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT_QuickenLoan_SharePoint\Row Count"
               componentClassID="Microsoft.RowCount"
               contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -14970,7 +14970,7 @@ where [refTable].[MarketSourceCode] = ?</property>
               startId="Package\DFT_QuickenLoan_SharePoint\DC_Insurance_Company.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_QuickenLoan_SharePoint.Paths[Derived Column Output1]"
-              endId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Inputs[Conditional Split Input]"
+              endId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]"
               name="Derived Column Output"
               startId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output]" />
             <path
@@ -14997,7 +14997,7 @@ where [refTable].[MarketSourceCode] = ?</property>
               refId="Package\DFT_QuickenLoan_SharePoint.Paths[Take]"
               endId="Package\DFT_QuickenLoan_SharePoint\Lookup_MarketSourceName.Inputs[Lookup Input]"
               name="Take"
-              startId="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test.Outputs[Take]" />
+              startId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Take]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -15012,7 +15012,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_Delete_QuickenLoan_Data"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15029,7 +15029,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_MaxModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15060,7 +15060,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_QuickenLoan_ETL_Log"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15217,6 +15217,15 @@ where [refTable].[MarketSourceCode] = ?</property>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::VarFromEmail,User::VarPassword,User::VarSmtpClient,User::VarSmtpServerPort,User::varSubject,User::VarToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -15335,35 +15344,6 @@ where [refTable].[MarketSourceCode] = ?</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
-    "ings")]
-
-namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_d8976dbe84bc4395a5465d5521c0042e.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -15616,6 +15596,35 @@ namespace ST_d8976dbe84bc4395a5465d5521c0042e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
+    "ings")]
+
+namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -15645,15 +15654,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -15896,35 +15896,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\EST_Delete_QuickenLoan_Data"
           TopLeft="88.5714300797905,54.2941184085133" />
         <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\EST_QuickenLoan_ETL_Log"
-          TopLeft="623.571439190787,178.176473087093" />
-        <NodeLayout
           Size="183.2,41.6"
           Id="Package\EST_MaxModifiedDate"
           TopLeft="377.678577860399,60.4117655531349" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="728.271439148212,98.1882360877463">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,79.9882369993471"
-              Start="0,0"
-              End="0,72.4882369993471">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.4882369993471" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\EST_QuickenLoan_ETL_Log"
+          TopLeft="623.571439190787,178.176473087093" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="560.878577860399,79.3000008204406">
@@ -15939,6 +15917,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="50.1928612452379,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="728.271439148212,98.1882360877463">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79.9882369993471"
+              Start="0,0"
+              End="0,72.4882369993471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.4882369993471" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15996,29 +15996,83 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\DFT_QuickenLoan_SharePoint\DC_Insurance_Company"
+          TopLeft="627.942867482439,305.882357231062" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT_QuickenLoan_SharePoint\Derived Column"
+          TopLeft="402.500006854535,51.6176477827418" />
+        <NodeLayout
           Size="180.8,41.6"
           Id="Package\DFT_QuickenLoan_SharePoint\OLE DB_StagingTable"
           TopLeft="120.714287770038,301.294121872595" />
         <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\DFT_QuickenLoan_SharePoint\DC_Insurance_Company"
-          TopLeft="627.942867482439,305.882357231062" />
+          Size="232.8,41.6"
+          Id="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad"
+          TopLeft="643.571439531385,51.2352948362027" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\DFT_QuickenLoan_SharePoint\Fuzzy Lookup_MotgageCrossWolk"
+          TopLeft="942.142873187455,302.058827765673" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\DFT_QuickenLoan_SharePoint\Row Count"
           TopLeft="382.857149377162,305.117651337984" />
         <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\DFT_QuickenLoan_SharePoint\Lookup_MarketSourceName"
+          TopLeft="959.285730622253,55.058824301591" />
+        <NodeLayout
           Size="161.6,41.6"
           Id="Package\DFT_QuickenLoan_SharePoint\Salesforce Source"
           TopLeft="110.714287599739,53.5294125154354" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\DFT_QuickenLoan_SharePoint\Derived Column"
-          TopLeft="524.642866077472,53.1470595688971" />
-        <NodeLayout
-          Size="187.2,41.6"
-          Id="Package\DFT_QuickenLoan_SharePoint\CondSplt_Remove_test"
-          TopLeft="712.857154997028,52.0000007292804" />
+        <EdgeLayout
+          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Take]"
+          TopLeft="876.371439531385,73.9470595688969">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.9142910908681,0"
+              Start="0,0"
+              End="75.4142910908681,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.4142910908681,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.1697041391841,5,23.0748828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Salesforce Source Output]"
+          TopLeft="272.314287599739,73.3735301490886">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.185719254796,0"
+              Start="0,0"
+              End="122.685719254796,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122.685719254796,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_QuickenLoan_SharePoint.Paths[Row Count Output 1]"
           TopLeft="382.857149377162,324.00588660529">
@@ -16042,19 +16096,65 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Derived Column Output1]"
-          TopLeft="677.442866077472,73.3735301490888">
+          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Lookup Match Output]"
+          TopLeft="1062.51430190485,96.658824301591">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.4142889195559,0"
+              EndConnector="0,205.400003464082"
               Start="0,0"
-              End="27.9142889195559,0">
+              End="0,197.900003464082">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="27.9142889195559,0" />
+                    End="0,197.900003464082" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,93.1453142320409,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Fuzzy Lookup Output]"
+          TopLeft="942.142873187455,324.770592498367">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.800005705015,0"
+              Start="0,0"
+              End="-112.300005705015,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-112.300005705015,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Derived Column Output1]"
+          TopLeft="555.300006854535,72.2264713094723">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.2714326768506,0"
+              Start="0,0"
+              End="80.7714326768506,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.7714326768506,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16085,111 +16185,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\DFT_QuickenLoan_SharePoint\Lookup_MarketSourceName"
-          TopLeft="966.428587886753,55.058824301591" />
-        <NodeLayout
-          Size="237.6,41.6"
-          Id="Package\DFT_QuickenLoan_SharePoint\Fuzzy Lookup_MotgageCrossWolk"
-          TopLeft="952.857159084204,303.588239551828" />
-        <EdgeLayout
-          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Lookup Match Output]"
-          TopLeft="1071.44287348548,96.658824301591">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,206.929415250237"
-              Start="0,0"
-              End="0,199.429415250237">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,199.429415250237" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,93.9100201251185,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Fuzzy Lookup Output]"
-          TopLeft="952.857159084204,325.535298391445">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-130.514291601765,0"
-              Start="0,0"
-              End="-123.014291601765,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-123.014291601765,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Take]"
-          TopLeft="900.057154997028,74.3294125154357">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="66.3714328897245,0"
-              Start="0,0"
-              End="58.8714328897245,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="58.8714328897245,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.8982750386122,5,23.0748828125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_QuickenLoan_SharePoint.Paths[Salesforce Source Output]"
-          TopLeft="272.314287599739,74.1382360421663">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="252.328578477734,0"
-              Start="0,0"
-              End="244.828578477734,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="244.828578477734,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_QuickenLoan_SharePoint\OLE DB_StagingTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_QuickenLoan_SharePoint\Fuzzy Lookup_MotgageCrossWolk">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16221,19 +16234,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_QuickenLoan_SharePoint\Fuzzy Lookup_MotgageCrossWolk">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
