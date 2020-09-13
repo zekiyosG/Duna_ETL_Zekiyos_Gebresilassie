@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="340"
-  DTS:VersionGUID="{108D9BC7-27E2-466A-BA48-3A25FEC0441E}">
+  DTS:VersionBuild="359"
+  DTS:VersionGUID="{93DB7599-CDA3-4E0F-B222-F87D17D7C955}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -26,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/10 21:37:44  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/12 09:36:30  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -38,6 +38,17 @@
       DTS:ObjectName="VarFromEmail">
       <DTS:VariableValue
         DTS:DataType="8">qletlteam@gmail.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85642758-1D51-4783-B673-17C668A4DC60}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DATEADD( &quot;d&quot;, - @[$Project::ParLoadDate]  , @[User::VarMaxLastModifiedDate])"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="VarLoadCreatedDate">
+      <DTS:VariableValue
+        DTS:DataType="7">8/26/2020 6:41:18 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -96,7 +107,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 9:37:45 PM</DTS:VariableValue>
+        DTS:DataType="7">9/12/2020 9:36:30 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -151,8 +162,6 @@
       DTS:ObjectName="DFT_LendingQB_SharePoint"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
-      <DTS:PropertyExpression
-        DTS:Name="[ODataSource_Sharepoint].[Query]">"$filter=LastModifiedDate gt datetime'" +  (DT_WSTR, 50) @[User::VarMaxLastModifiedDate] +  "'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -9384,6 +9393,7 @@
                           name="CopyFromReferenceColumn"
                           state="escaped">Insurance_Company</property>
                         <property
+                          containsID="true"
                           dataType="System.Null"
                           description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
                           name="SourceInputColumnLineageID" />
@@ -9631,7 +9641,7 @@ where [refTable].[MarketSourceCode] = ?</property>
                   dataType="System.String"
                   description="Query in the url. "
                   expressionType="Notify"
-                  name="Query">$filter=LastModifiedDate gt datetime'9/5/2020 6:41:18 PM'</property>
+                  name="Query">$filter=LastModifiedDate ge '2020-09-05 6:41:18 '</property>
                 <property
                   dataType="System.String"
                   description="Resource path of the collection to be retrieved from the service."
@@ -12947,13 +12957,12 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\EST_DeleteStagingData"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{C593B5FB-4EA0-495F-B11F-7790868B4915}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_DeleteStagingData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -13057,10 +13066,18 @@ where [refTable].[MarketSourceCode] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{909181AE-C769-4770-BAF1-2DE6A2E3D465}"
+      DTS:DTSID="{0BBC5023-7254-40CF-A5FF-CDAA4BC442C5}"
       DTS:From="Package\EST_MaxModifiedDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
+      DTS:To="Package\EST_DeleteStagingData" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C2EC465-F355-41D8-9F5C-6F678735884B}"
+      DTS:From="Package\EST_DeleteStagingData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
       DTS:To="Package\DFT_LendingQB_SharePoint" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
@@ -13839,37 +13856,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="199.2,41.6"
           Id="Package\EST_LendingQB_ETL_Log"
-          TopLeft="562.857152442543,178.941178980171" />
+          TopLeft="570.000009707042,180.470590766326" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\EST_MaxModifiedDate"
           TopLeft="263.392861628411,178.941178980171" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="354.992861628411,178.941178980171">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="667.400009621893,98.1882360877463">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="276.473814574999,-80.7529428924247"
+              EndConnector="0,82.28235467858"
               Start="0,0"
-              End="276.473814574999,-73.2529428924247">
+              End="0,74.78235467858">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-44.086092031791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-44.086092031791"
-                    Point2="0,-48.086092031791"
-                    Point3="4,-48.086092031791" />
-                  <mssgle:LineSegment
-                    End="272.473814574999,-48.086092031791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="272.473814574999,-48.086092031791"
-                    Point2="276.473814574999,-48.086092031791"
-                    Point3="276.473814574999,-52.086092031791" />
-                  <mssgle:LineSegment
-                    End="276.473814574999,-73.2529428924247" />
+                    End="0,74.78235467858" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13879,31 +13884,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="698.933342870076,98.1882360877463">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="355.253575891317,178.941178980171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-36.4761904275333,80.7529428924247"
+              EndConnector="0,-82.28235467858"
               Start="0,0"
-              End="-36.4761904275333,73.2529428924247">
+              End="0,-74.78235467858">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.6668508606337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.6668508606337"
-                    Point2="0,32.6668508606337"
-                    Point3="-4,32.6668508606337" />
+                    End="0,-74.78235467858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="450.314290154223,76.6235301946687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.68571938252,0"
+              Start="0,0"
+              End="102.18571938252,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-32.4761904275333,32.6668508606337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-32.4761904275333,32.6668508606337"
-                    Point2="-36.4761904275333,32.6668508606337"
-                    Point3="-36.4761904275333,36.6668508606337" />
-                  <mssgle:LineSegment
-                    End="-36.4761904275333,73.2529428924247" />
+                    End="102.18571938252,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14172,7 +14187,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -14182,7 +14197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

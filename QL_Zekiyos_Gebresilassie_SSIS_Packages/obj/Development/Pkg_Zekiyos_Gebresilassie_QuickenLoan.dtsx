@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_QuickenLoan1"
   DTS:PackageType="5"
-  DTS:VersionBuild="331"
-  DTS:VersionGUID="{E5DDEE8D-81C3-4CFF-9AA4-025499FA3363}">
+  DTS:VersionBuild="334"
+  DTS:VersionGUID="{AE9E10A5-7C52-451E-B5AF-67BA3AA54B3F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/10 21:41:11  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/12 22:41:28  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -85,7 +85,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 9:41:12 PM</DTS:VariableValue>
+        DTS:DataType="7">9/12/2020 10:41:29 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -13300,11 +13300,6 @@ where [refTable].[MarketSourceCode] = ?</property>
                       cachedLength="50"
                       cachedName="D_BorrisLastName"
                       lineageId="Package\DFT_QuickenLoan_SharePoint\Derived Column.Outputs[Derived Column Output].Columns[D_BorrisLastName]" />
-                    <inputColumn
-                      refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LastModifiedDate__c"
-                      lineageId="Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -13335,34 +13330,6 @@ where [refTable].[MarketSourceCode] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
                       name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Outputs[Ignor]"
-                  description="Output 2 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Ignor"
-                  synchronousInputId="Package\DFT_QuickenLoan_SharePoint\Remove_test &amp; IncrementalLoad.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\DFT_QuickenLoan_SharePoint\Salesforce Source.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]} &lt; @[User::VarMaxLastModifiedDate]</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">LastModifiedDate__c &lt; @[User::VarMaxLastModifiedDate]</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">1</property>
                   </properties>
                   <externalMetadataColumns />
                 </output>
@@ -13447,17 +13414,120 @@ where [refTable].[MarketSourceCode] = ?</property>
                   description="Specifies the type of source data from Salesforce"
                   expressionType="Notify"
                   name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Salesforce.SalesforceSourceType">0</property>
+                  typeConverter="KingswaySoft.IntegrationToolkit.Salesforce.SalesforceSourceType">1</property>
                 <property
                   dataType="System.String"
                   description="Salesforce object to retrieve data from."
                   expressionType="Notify"
-                  name="SourceObject">Quicken_Loans__c</property>
+                  name="SourceObject"></property>
                 <property
                   dataType="System.String"
                   description="Salesforce object query statement."
                   expressionType="Notify"
-                  name="ObjectQuery"></property>
+                  name="ObjectQuery">SELECT
+      ActualClosingDate__c
+    , AmortizationType__c
+    , AnnualPercentageRate__c
+    , ApplicationDate__c
+    , ApplicationReturnedDate__c
+    , ApplicationStartedDate__c
+    , AppraisedValue__c
+    , ApprovalDate__c
+    , ApprovalStatus__c
+    , BorrAddress__c
+    , BorrBirthDate__c
+    , BorrCity__c
+    , BorrEmailAddress__c
+    , BorrFirstName__c
+    , BorrGender__c
+    , BorrLastName__c
+    , BorrNoYearsOnJob__c
+    , BorrState__c
+    , BorrTotalIncome__c
+    , BorrZip__c
+    , BottomQualificationRatios__c
+    , CloserName__c
+    , ClosingDisclosureRecievedDate__c
+    , CombinedLoanToValueRatio__c
+    , ConditionalApprovalDate__c
+    , ConditionsReceivedDate__c
+    , CreatedById
+    , CreatedDate
+    , CreditPullDate__c
+    , CurrentMilestone__c
+    , CurrentMilestoneTrackingDate__c
+    , DenialDate__c
+    , DisbursementDate__c
+    , DocumentPreparedDate__c
+    , DocumentResubmittedDate__c
+    , DocumentReviewedDate__c
+    , DocumentShippingDate__c
+    , DocumentSigningDate__c
+    , DocumentSubmittalDate__c
+    , EstimatedLoanClosingDate__c
+    , FinalDocumentDate__c
+    , FinallCreditScore__c
+    , FundedDate__c
+    , HouseOnSaleState__c
+    , HouseOnSaleStreet__c
+    , HouseOnSaleZip__c
+    , Id
+    , InitialClosingDisclosureSentDate__c
+    , InitialDisclosureProvidedDate__c
+    , InitialLoanEstimateDueDate__c
+    , InitialLoanEstimateSentDate__c
+    , InterestRate__c
+    , IntialLoanAmount__c
+    , IsBorrSelfEmployeedFlag__c
+    , IsConstructionLoan__c
+    , IsDeleted
+    , LastActivityDate
+    , LastLoadDate__c
+    , LastModifiedById
+    , LastModifiedDate
+    , LastModifiedDate__c
+    , LastReferencedDate
+    , LastViewedDate
+    , LeadDate__c
+    , LeadId__c
+    , LeadSource__c
+    , LoanExpirationDate__c
+    , LoanID__c
+    , LoanInformationDocumentDate__c
+    , LoanOfficer__c
+    , LoanOfficerEmail__c
+    , LoanProcessorName__c
+    , LoanProgram__c
+    , LoanPurpose__c
+    , LoanSetupDate__c
+    , LoanStatus__c
+    , LoanStatusActionDate__c
+    , LoanTerm__c
+    , LoanToValueRatio__c
+    , LoanType__c
+    , LockDate__c
+    , LockExpireDate__c
+    , MarketSource__c
+    , MilestoneStatus__c
+    , MortgageInsuranceCompany__c
+    , Name
+    , NetBuyPrice__c
+    , OfficeID__c
+    , OriginationFee__c
+    , OwnerId
+    , ProcessingDate__c
+    , PropertyOccupancyType__c
+    , QAFailDate__c
+    , QAStatus__c
+    , SystemModstamp
+    , TopQualificationRatios__c
+    , TotalFees__c
+    , TotalLoanAmt__c
+    , UnderwriterName__c
+    , UnderwriterRiskAssess__c
+    , UnderwritingReceivedDate__c
+  FROM Quicken_Loans__c
+  where LastModifiedDate__c &gt; @[User::VarMaxLastModifiedDate]</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the batch size of the query."
@@ -15012,7 +15082,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_Delete_QuickenLoan_Data"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15029,7 +15099,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_MaxModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -15060,7 +15130,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="EST_QuickenLoan_ETL_Log"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
