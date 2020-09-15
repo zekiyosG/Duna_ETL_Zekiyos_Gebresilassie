@@ -11,10 +11,27 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{5551A86D-3886-44DC-98F7-ADA89FD3C6DD}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{6E5BCDA7-306C-476B-A79B-BAC021CB1C18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev]"
+      DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CB21A4F9-AFA1-4B61-8BDC-7569CC7798A1}"
+      DTS:ObjectName="ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=salesforce@dunallc.com.sandboxdev;Dsn=ZappySys Salesforce Driver;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABHoZUtXfTx8C0WPJQ0+cq78iJTeR1LLV3kMCTjYZCLVgAAAAAOgAAAAAIAACAAAAAKGERyoTjwZCa9RlENxCRe1ux+QjvBbWitbFlSJ/kMfiAAAABwD3elHDtOzhL1RAYz26hbf+VEv11mGFzjCAFgAFzZDkAAAAApslIWFe5waPpSWTbcV0eISlnlgBSW4qKJKQuDM8i2dTgf7kOmVNFgDem+RDHjMqfdE8dGcBNxTfrM58yUtNQv</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -327,7 +344,7 @@
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\DFT_UberWriter_SQL"
-          TopLeft="449.285721937005,61.9411773392899" />
+          TopLeft="211.428575029179,62.7058832323675" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -337,31 +354,35 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\DFT_UberWriter_SQL\Derived Column"
-          TopLeft="641.428582352035,59.6470596600569" />
+          Size="170.4,41.6"
+          Id="Package\DFT_UberWriter_SQL\OLE DB Destination"
+          TopLeft="383.571435103611,195.764708627879" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\DFT_UberWriter_SQL\ADO NET Source"
+          TopLeft="395.00000672681,59.6470596600569" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\DFT_UberWriter_SQL\Row Count"
           TopLeft="661.428582692633,196.529414520957" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\DFT_UberWriter_SQL\OLE DB Destination"
-          TopLeft="383.571435103611,195.764708627879" />
+          Size="152.8,41.6"
+          Id="Package\DFT_UberWriter_SQL\Derived Column"
+          TopLeft="641.428582352035,59.6470596600569" />
         <EdgeLayout
-          Id="Package\DFT_UberWriter_SQL.Paths[Derived Column Output]"
-          TopLeft="726.671439744258,101.247059660057">
+          Id="Package\DFT_UberWriter_SQL.Paths[ADO NET Source Output]"
+          TopLeft="552.60000672681,80.4470596600569">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,95.2823548608998"
+              EndConnector="88.8285756252252,0"
               Start="0,0"
-              End="0,87.7823548608998">
+              End="81.3285756252252,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,87.7823548608998" />
+                    End="81.3285756252252,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -392,24 +413,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\DFT_UberWriter_SQL\ADO NET Source"
-          TopLeft="395.00000672681,59.6470596600569" />
         <EdgeLayout
-          Id="Package\DFT_UberWriter_SQL.Paths[ADO NET Source Output]"
-          TopLeft="552.60000672681,80.4470596600569">
+          Id="Package\DFT_UberWriter_SQL.Paths[Derived Column Output]"
+          TopLeft="726.671439744258,101.247059660057">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="88.8285756252252,0"
+              EndConnector="0,95.2823548608998"
               Start="0,0"
-              End="81.3285756252252,0">
+              End="0,87.7823548608998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="81.3285756252252,0" />
+                    End="0,87.7823548608998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-VTCGGJP</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAACAAAAAAAQZgAAAAEAACAAAABHZlmvE9JhoINgjCa86eJpv02HqFL/qiRWGSU+4LebrgAAAAAOgAAAAAIAACAAAAC4cA0dhYwKkWfUT+QJJDvKPkNSK8DK5n4U7nQJN5BTFpAAAABYVpBPqITzrbBpFy4+xOrbD1GttLZvYgzxJDjTNPQpOervD29z+nGPRQHT8gwyUc8qi3se2i3Tu/r4BVwGgHTD8P6CFeGsVYmThET+6lx7WyqEW0Xz5j1YWar6lVbzD5+jE3gV+qHeBLtAc7WDEwouL4EyPXW5DWyyig+TVwyX2A+gWBP3/pYk/SDHk9RrHLFAAAAAe4WAH/lLpklrgbnY9myYWAnEtet90MhwNLvw7reDuy2MkOMFCcIOqY6tMnch9jy2w/uuCTuvqyrJqFG8kreGEA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAACAAAAAAAQZgAAAAEAACAAAAAu2pt0HP6dKL1GeJenJ6wBwdBqy6j1o6Pub6UWxyOq8QAAAAAOgAAAAAIAACAAAAB+Nibhf2HyvVA9CfgZcZ4LziCtQRDsyUFfykPwz7ccXZAAAACzI4lFywBw3W2asItlnZJRQFMqNM0EMoNSs2Fw7T1bD4mNFJ9q+rFcmlkHl4uxhEdYzMtLEZrH6D+cW9LYq5c7rceuq017xe4uAFDjGReAn8hqn9mrn5KIc9YpqDkRCEmZpvvBCo4qpzDEgIsbGWloeOBUGje2Y4MER0dC9quShX2WXgmRq7aGygEW6c8e+EpAAAAA3vP+pLSV5UDUI8AeEmeAREUK8VSgLKqkc2by1hLinf7gNoviP++Re6o1ZTtQmBw8N6CJJbIBB75TlTIuF0ARNA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -655,7 +655,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Service Document Url=https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie="SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjgsMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAwNDUzOWU4OWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfHNoYXJlcG9pbnRAZHVuYXRrLmNvbSwxMzI0NDQwMTc1MzAwMDAwMDAsMTMyNDIxNzU3MDQwMDAwMDAwLDEzMjQ0NDg4MTU0MDM1NDAzNCwwLjAuMC4wLDQsODVkZGY3ZTktODA2OC00YmI2LTg5NzktNDQ3NjE0NDJlMzlhLCwsMzA1NTc5OWYtNDBmNy0wMDAwLTQ3MzQtNjEyMDMzMmYzYzhjLDMwNTU3OTlmLTQwZjctMDAwMC00NzM0LTYxMjAzMzJmM2M4YywsMCwwLDAsLCwsMjY1MDQ2Nzc0Mzk5OTk5OTk5OSwwLCxyNWZCNEg0WUVwTDJQdUxPOEJpSHZpT21lejlPQ3VKTTVETDh2TTgweVF3NHdYbVo0UTBEWi91cHJTYTFDODdMOFNiKzIvRGJMNFBQdzdCbmJ1ZS9rN0dib2pKQ28yMWgveldGTHRLTi84T2w5czIwQjd2a2dZbi9lbXNwYVRZNGNVWlZVcWRTWG8rS2ovWWRVa1JBeVdaSU5GNmgvdEQxNVl4bHJHZEl1WEhTb2EvNnZBckQvb3hkdEF0azhGSWN1RnVHQWFwZEpabDQxT0U2aTYzaTJuNzVNdUxLZWZ3NFVwa1k3MFBGTXZTQVVCNmlZSkRLZmR2VkNpRGlqUmFGWjJCdU1DbmYrb2VENEdTeVVoOW1jTi9FNGJpR3h6ZEdIekh5WjhUMnF5NmVndGxLbVlTK3B6WXI1VjFIYWRKZ1NSckdnZDZyTEJSaENldzlSQnNmbkE9PTwvU1A+";User ID=sharepoint@dunatk.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=True;Max Received Message Size=4398046511104</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Service Document Url=https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie="SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjgsMGguZnxtZW1iZXJzaGlwfDEwMDMyMDAwNDUzOWU4OWZAbGl2ZS5jb20sMCMuZnxtZW1iZXJzaGlwfHNoYXJlcG9pbnRAZHVuYXRrLmNvbSwxMzI0NDQ1MjQxNjAwMDAwMDAsMTMyNDIxNzU3MDQwMDAwMDAwLDEzMjQ0NTM4ODE2NzU3MjIwOCwwLjAuMC4wLDQsODVkZGY3ZTktODA2OC00YmI2LTg5NzktNDQ3NjE0NDJlMzlhLCwsODE4NTc5OWYtOTBjMy0wMDAwLTQ3NWEtZGUwMzM1Mjg0N2NkLDgxODU3OTlmLTkwYzMtMDAwMC00NzVhLWRlMDMzNTI4NDdjZCwsMCwwLDAsLCwsMjY1MDQ2Nzc0Mzk5OTk5OTk5OSwwLCxMZHJoelpiVWZQK1BaNUhnWjVackNiLzhHNnlKaVdHWGRYTCtuMTBmbDZ1SGFRc2t1cCtsangrc2owSEtpSnVWUCt0aUR4Y0phbzk1V0lqUllIbi9VVnBzT3daRGQzK1l5SURNY1FwMjdxNGpCd2hVcHdlL0swejFFWHR5UitDS1FPa3I2aUtQZytkRkw2SWFyNVdRbGFhYzdxRFdNYXIxN3ZjTkU1RDV6UVVYMjI0eXNwWTh1cDZ5YzNRczNEQWtQYzZTSnZRVFpDMDg2WC96Vno5RUpsMHpLVDYzbGRZaXRrRW14QWloN3YzSVBVK3FnRm1QSEo0VW5UdXNXOExtdnZTMW1WQVFwU0JzbUVmT1J2YTBMWm9FVTlmN1h6T2h0WTdJMzdhMUUySmdrVXEyTmoyQ1pWbXphMnJ5Z0hZMEg3am1DZUY2MzV0K1pOaHJoMlVVRWc9PTwvU1A+";User ID=sharepoint@dunatk.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=True;Max Received Message Size=4398046511104</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -711,10 +711,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">356</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">361</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B7382BC1-E14B-4B29-9491-16CBED471E61}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6316A650-1584-4110-A814-1CD431CDD61B}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -779,16 +779,119 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{0F735D11-D3FB-47BD-9B1E-758527ACDD71}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6E5BCDA7-306C-476B-A79B-BAC021CB1C18}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters />
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">uid=salesforce@dunallc.com.sandboxdev;Dsn=ZappySys Salesforce Driver;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.ConnectUsingManagedIdentity">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.InitialCatalog">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.Password">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.RetainSameConnection">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.ServerName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.ZappySys Salesforce Driver.salesforce@dunallc.com.sandboxdev.UserName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">salesforce@dunallc.com.sandboxdev</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx">
               <SSIS:Properties>
@@ -932,10 +1035,10 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Zekiyos_Gebresilassie_QuickenLoan1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">332</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">339</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{D5E04E50-53D9-468B-9762-C0FE7E3B30EA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{48117EC1-0E19-4C9D-98C0-56C042FCDD9E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

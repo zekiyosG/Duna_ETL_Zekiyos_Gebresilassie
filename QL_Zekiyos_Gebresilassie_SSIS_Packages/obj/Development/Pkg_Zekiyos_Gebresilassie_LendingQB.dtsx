@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="359"
-  DTS:VersionGUID="{93DB7599-CDA3-4E0F-B222-F87D17D7C955}">
+  DTS:VersionBuild="369"
+  DTS:VersionGUID="{D5F44B9C-2E56-42DB-B23E-0A2D901F3AFB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -26,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/12 22:41:28  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/14 21:10:40  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -107,7 +107,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/12/2020 10:41:28 PM</DTS:VariableValue>
+        DTS:DataType="7">9/14/2020 9:10:41 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2051,13 +2051,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,128,1252)(DT_WSTR,128)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[MortgageInsuranceCompany]}</property>
+                          name="Expression">(DT_STR,128,1252)([ISNULL]((DT_WSTR,128)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[MortgageInsuranceCompany]}) ? "Dunatek" : (DT_WSTR,128)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[MortgageInsuranceCompany]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,128,1252)(DT_WSTR,128)MortgageInsuranceCompany</property>
+                          name="FriendlyExpression">(DT_STR,128,1252)(ISNULL((DT_WSTR,128)MortgageInsuranceCompany) ? "Dunatek" : (DT_WSTR,128)MortgageInsuranceCompany)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -9641,7 +9641,7 @@ where [refTable].[MarketSourceCode] = ?</property>
                   dataType="System.String"
                   description="Query in the url. "
                   expressionType="Notify"
-                  name="Query">$filter=LastModifiedDate ge '2020-09-05 6:41:18 '</property>
+                  name="Query"></property>
                 <property
                   dataType="System.String"
                   description="Resource path of the collection to be retrieved from the service."
@@ -12270,14 +12270,6 @@ where [refTable].[MarketSourceCode] = ?</property>
                       externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[AnnualPercentageRate]"
                       lineageId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[D_AnnualPercentageRate]" />
                     <inputColumn
-                      refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[FuzzyMatchColumn]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="128"
-                      cachedName="FuzzyMatchColumn"
-                      externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[MortgageInsuranceCompany]"
-                      lineageId="Package\DFT_LendingQB_SharePoint\DC_Insurance_Company.Outputs[Derived Column Output].Columns[FuzzyMatchColumn]" />
-                    <inputColumn
                       refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[D_OriginationFee]"
                       cachedDataType="numeric"
                       cachedName="D_OriginationFee"
@@ -12316,6 +12308,22 @@ where [refTable].[MarketSourceCode] = ?</property>
                       cachedName="UnderwriterFullName"
                       externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[UnderwriterFullName]"
                       lineageId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[UnderwriterFullName]" />
+                    <inputColumn
+                      refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[D_MortgageInsuranceCompany]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="D_MortgageInsuranceCompany"
+                      externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[MortgageInsuranceCompany]"
+                      lineageId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[D_MortgageInsuranceCompany]" />
+                    <inputColumn
+                      refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[FuzzyMatchColumn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="FuzzyMatchColumn"
+                      externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[InsuranceCompany]"
+                      lineageId="Package\DFT_LendingQB_SharePoint\DC_Insurance_Company.Outputs[Derived Column Output].Columns[FuzzyMatchColumn]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -12855,6 +12863,12 @@ where [refTable].[MarketSourceCode] = ?</property>
                       dataType="str"
                       length="128"
                       name="UnderwriterFullName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[InsuranceCompany]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="InsuranceCompany" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -13848,33 +13862,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="210.4,41.6"
           Id="Package\DFT_LendingQB_SharePoint"
-          TopLeft="560.000009536743,56.5882360877463" />
+          TopLeft="592.14286722699,77.2352952008429" />
         <NodeLayout
           Size="189.6,41.6"
           Id="Package\EST_DeleteStagingData"
-          TopLeft="260.714290154223,55.058824301591" />
+          TopLeft="327.857148440516,71.1176480562217" />
         <NodeLayout
           Size="199.2,41.6"
           Id="Package\EST_LendingQB_ETL_Log"
-          TopLeft="570.000009707042,180.470590766326" />
+          TopLeft="857.142871739914,84.1176482385421" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\EST_MaxModifiedDate"
-          TopLeft="263.392861628411,178.941178980171" />
+          TopLeft="39.8214292495836,66.5294126977561" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="667.400009621893,98.1882360877463">
+          TopLeft="802.54286722699,101.476471719692">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,82.28235467858"
+              EndConnector="54.6000045129239,0"
               Start="0,0"
-              End="0,74.78235467858">
+              End="47.1000045129239,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.78235467858" />
+                    End="47.1000045129239,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13885,18 +13899,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="355.253575891317,178.941178980171">
+          TopLeft="223.021429249584,89.6235303769889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-82.28235467858"
+              EndConnector="104.835719190933,0"
               Start="0,0"
-              End="0,-74.78235467858">
+              End="97.3357191909327,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-74.78235467858" />
+                    End="97.3357191909327,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13907,18 +13921,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="450.314290154223,76.6235301946687">
+          TopLeft="517.457148440516,94.9764716285323">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109.68571938252,0"
+              EndConnector="74.6857187864734,0"
               Start="0,0"
-              End="102.18571938252,0">
+              End="67.1857187864734,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="102.18571938252,0" />
+                    End="67.1857187864734,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14006,7 +14020,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\DFT_LendingQB_SharePoint\CondSplt_Remove_test"
-          TopLeft="649.285725342984,58.1176478739016" />
+          TopLeft="640.000010899135,56.5882360877463" />
         <EdgeLayout
           Id="Package\DFT_LendingQB_SharePoint.Paths[Lookup Match Output]"
           TopLeft="1053.91430003156,99.9088243471714">
@@ -14027,7 +14041,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,92.6673730488671,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,92.667373048867,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14055,18 +14069,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_LendingQB_SharePoint.Paths[Derived Column Output1]"
-          TopLeft="542.442863778436,77.5794125610159">
+          TopLeft="542.442863778436,76.8147066679382">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="106.842861564548,0"
+              EndConnector="97.5571471206989,0"
               Start="0,0"
-              End="99.3428615645483,0">
+              End="90.0571471206989,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="99.3428615645483,0" />
+                    End="90.0571471206989,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14099,25 +14113,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_LendingQB_SharePoint.Paths[BorrowerNameWithOutTest]"
-          TopLeft="836.485725342984,79.0132361105365">
+          TopLeft="827.200010899135,78.2485302174589">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="107.085719297369,0"
+              EndConnector="116.371433741219,0"
               Start="0,0"
-              End="99.5857192973695,0">
+              End="108.871433741219,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="99.5857192973695,0" />
+                    End="108.871433741219,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-11.3035270700653,5,122.1927734375,9.7490234375"
+              BoundingBox="-6.66066984814045,5,122.1927734375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

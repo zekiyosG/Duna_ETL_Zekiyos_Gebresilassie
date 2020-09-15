@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_QuickenLoan1"
   DTS:PackageType="5"
-  DTS:VersionBuild="339"
-  DTS:VersionGUID="{48117EC1-0E19-4C9D-98C0-56C042FCDD9E}">
+  DTS:VersionBuild="348"
+  DTS:VersionGUID="{64CD3A4D-A25B-4BD8-B2A5-CAE306CE5967}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/12 22:53:15  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/14 21:47:33  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -85,7 +85,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/12/2020 10:53:15 PM</DTS:VariableValue>
+        DTS:DataType="7">9/14/2020 9:47:33 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1997,13 +1997,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,128,1252)(DT_WSTR,128)#{Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MortgageInsuranceCompany__c]}</property>
+                          name="Expression">(DT_STR,128,1252)([ISNULL]((DT_WSTR,128)#{Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MortgageInsuranceCompany__c]}) ? "Dunatek" : (DT_WSTR,128)#{Package\DFT_QuickenLoan_SalesForce\Salesforce Source.Outputs[Salesforce Source Output].Columns[MortgageInsuranceCompany__c]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,128,1252)(DT_WSTR,128)MortgageInsuranceCompany__c</property>
+                          name="FriendlyExpression">(DT_STR,128,1252)(ISNULL((DT_WSTR,128)MortgageInsuranceCompany__c) ? "Dunatek" : (DT_WSTR,128)MortgageInsuranceCompany__c)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12440,14 +12440,6 @@ where [refTable].[MarketSourceCode] = ?</property>
                       externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[AnnualPercentageRate]"
                       lineageId="Package\DFT_QuickenLoan_SalesForce\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[D_AnnualPercentageRate]" />
                     <inputColumn
-                      refId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[FuzzyMatchColumn]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="128"
-                      cachedName="FuzzyMatchColumn"
-                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[MortgageInsuranceCompany]"
-                      lineageId="Package\DFT_QuickenLoan_SalesForce\DC_Insurance_Company.Outputs[Derived Column Output].Columns[FuzzyMatchColumn]" />
-                    <inputColumn
                       refId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[D_OriginationFee]"
                       cachedDataType="numeric"
                       cachedName="D_OriginationFee"
@@ -12708,6 +12700,22 @@ where [refTable].[MarketSourceCode] = ?</property>
                       cachedName="UnderwritingReceivedDate__c"
                       externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[UnderwritingReceivedDate]"
                       lineageId="Package\DFT_QuickenLoan_SalesForce\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[UnderwritingReceivedDate__c]" />
+                    <inputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[D_MortgageInsuranceCompany]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="D_MortgageInsuranceCompany"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[MortgageInsuranceCompany]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[D_MortgageInsuranceCompany]" />
+                    <inputColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[FuzzyMatchColumn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="128"
+                      cachedName="FuzzyMatchColumn"
+                      externalMetadataColumnId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[InsuranceCompany]"
+                      lineageId="Package\DFT_QuickenLoan_SalesForce\DC_Insurance_Company.Outputs[Derived Column Output].Columns[FuzzyMatchColumn]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -13247,6 +13255,12 @@ where [refTable].[MarketSourceCode] = ?</property>
                       dataType="str"
                       length="128"
                       name="UnderwriterFullName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_QuickenLoan_SalesForce\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[InsuranceCompany]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="InsuranceCompany" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -15254,7 +15268,6 @@ where [refTable].[MarketSourceCode] = ?</property>
           DTS:refId="Package.EventHandlers[OnError]\Script Task"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:Disabled="True"
           DTS:DTSID="{3472D0F0-908E-44DA-B1E5-0987C338ADB1}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
@@ -15268,6 +15281,15 @@ where [refTable].[MarketSourceCode] = ?</property>
               Language="CSharp"
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::VarFromEmail,User::VarPassword,User::VarSmtpClient,User::VarSmtpServerPort,User::varSubject,User::VarToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -15387,35 +15409,6 @@ where [refTable].[MarketSourceCode] = ?</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
-    "ings")]
-
-namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_d8976dbe84bc4395a5465d5521c0042e.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -15668,6 +15661,35 @@ namespace ST_d8976dbe84bc4395a5465d5521c0042e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
+    "ings")]
+
+namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -15697,15 +15719,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -16044,6 +16057,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\DFT_QuickenLoan_SalesForce\Salesforce Source"
+          TopLeft="110.714287599739,53.5294125154354" />
+        <NodeLayout
           Size="194.4,41.6"
           Id="Package\DFT_QuickenLoan_SalesForce\DC_Insurance_Company"
           TopLeft="627.942867482439,305.882357231062" />
@@ -16071,10 +16088,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="209.6,41.6"
           Id="Package\DFT_QuickenLoan_SalesForce\Lookup_MarketSourceName"
           TopLeft="959.285730622253,55.058824301591" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\DFT_QuickenLoan_SalesForce\Salesforce Source"
-          TopLeft="110.714287599739,53.5294125154354" />
         <EdgeLayout
           Id="Package\DFT_QuickenLoan_SalesForce.Paths[Take]"
           TopLeft="876.371439531385,73.9470595688969">
@@ -16163,7 +16176,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,93.1453142320409,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,93.145314232041,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16268,7 +16281,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -16278,7 +16291,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
