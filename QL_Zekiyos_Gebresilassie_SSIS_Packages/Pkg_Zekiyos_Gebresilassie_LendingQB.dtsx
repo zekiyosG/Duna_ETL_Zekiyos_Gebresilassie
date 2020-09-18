@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="370"
-  DTS:VersionGUID="{3CF03178-B77B-4FAC-B547-6BB44539CE1E}">
+  DTS:VersionBuild="378"
+  DTS:VersionGUID="{AF27B075-55AD-4955-A9D2-59A3BF672052}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -26,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/14 22:11:49  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/15 23:18:37  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -107,7 +107,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/14/2020 10:11:49 PM</DTS:VariableValue>
+        DTS:DataType="7">9/15/2020 11:18:38 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -692,13 +692,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,255,1252)([ISNULL]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]}) ? "Dunatek" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Dunatek ",1) &gt; 0 ? "Dunatek" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"IBX",1) &gt; 0 ? "IBX" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Fusion",1) &gt; 0 ? "Fusion" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Leadpoint",1) &gt; 0 ? "Leadpoint" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"HARP",1) &gt; 0 ? "HARP" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Bills",1) &gt; 0 ? "Bills" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"VA Loan",1) &gt; 0 ? "VA Loan" : [FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Military",1) &gt; 0 ? "Military" : [ISNULL]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]}) ? "Dunatek" : [REPLACE]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},".com",""))</property>
+                          name="Expression">(DT_STR,255,1252)([ISNULL]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]}) ? "Dunatek" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Dunatek",1) &gt; 0 ? "Dunatek" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"IBX",1) &gt; 0 ? "IBX" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Fusion",1) &gt; 0 ? "Fusion" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Leadpoint",1) &gt; 0 ? "Leadpoint" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"HARP",1) &gt; 0 ? "HARP" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Bills",1) &gt; 0 ? "Bills" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"VA Loan",1) &gt; 0 ? "VA Loan" : ([FINDSTRING]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},"Military",1) &gt; 0 ? "Military" : ([REPLACE]((DT_WSTR,255)#{Package\DFT_LendingQB_SharePoint\ODataSource_Sharepoint.Outputs[Output].Columns[LeadSource]},".com","")))))))))))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,255,1252)(ISNULL((DT_WSTR,255)LeadSource) ? "Dunatek" : FINDSTRING((DT_WSTR,255)LeadSource,"Dunatek ",1) &gt; 0 ? "Dunatek" : FINDSTRING((DT_WSTR,255)LeadSource,"IBX",1) &gt; 0 ? "IBX" : FINDSTRING((DT_WSTR,255)LeadSource,"Fusion",1) &gt; 0 ? "Fusion" : FINDSTRING((DT_WSTR,255)LeadSource,"Leadpoint",1) &gt; 0 ? "Leadpoint" : FINDSTRING((DT_WSTR,255)LeadSource,"HARP",1) &gt; 0 ? "HARP" : FINDSTRING((DT_WSTR,255)LeadSource,"Bills",1) &gt; 0 ? "Bills" : FINDSTRING((DT_WSTR,255)LeadSource,"VA Loan",1) &gt; 0 ? "VA Loan" : FINDSTRING((DT_WSTR,255)LeadSource,"Military",1) &gt; 0 ? "Military" : ISNULL((DT_WSTR,255)LeadSource) ? "Dunatek" : REPLACE((DT_WSTR,255)LeadSource,".com",""))</property>
+                          name="FriendlyExpression">(DT_STR,255,1252)(ISNULL((DT_WSTR,255)LeadSource) ? "Dunatek" : (FINDSTRING((DT_WSTR,255)LeadSource,"Dunatek",1) &gt; 0 ? "Dunatek" : (FINDSTRING((DT_WSTR,255)LeadSource,"IBX",1) &gt; 0 ? "IBX" : (FINDSTRING((DT_WSTR,255)LeadSource,"Fusion",1) &gt; 0 ? "Fusion" : (FINDSTRING((DT_WSTR,255)LeadSource,"Leadpoint",1) &gt; 0 ? "Leadpoint" : (FINDSTRING((DT_WSTR,255)LeadSource,"HARP",1) &gt; 0 ? "HARP" : (FINDSTRING((DT_WSTR,255)LeadSource,"Bills",1) &gt; 0 ? "Bills" : (FINDSTRING((DT_WSTR,255)LeadSource,"VA Loan",1) &gt; 0 ? "VA Loan" : (FINDSTRING((DT_WSTR,255)LeadSource,"Military",1) &gt; 0 ? "Military" : (REPLACE((DT_WSTR,255)LeadSource,".com","")))))))))))</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2210,7 +2210,7 @@
                   dataType="System.String"
                   description="Specifies the name of the reference table or view against which to match incoming records."
                   name="ReferenceTableName"
-                  state="escaped">_x005B_dbo_x005D_._x005B_MortgageInsuranceCompanyCrossWalk1_x005D_</property>
+                  state="escaped">_x005B_dbo_x005D_._x005B_MortgageInsuranceCompany_x0020_Cross_x0020_Walk_x005D_</property>
                 <property
                   dataType="System.Int32"
                   description="Indicates whether to drop an existing fuzzy-match index table if transformation is configured to generate a new table and a table with the same name already exists."
@@ -2236,7 +2236,7 @@
                   dataType="System.String"
                   description="Specifies the metadata of the reference table in XML format."
                   name="ReferenceMetadataXml"
-                  state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_MortgageInsuranceCompanyID_x0022__x0020_dataType_x003D__x0022_DT_WSTR_x0022__x0020_length_x003D__x0022_128_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_0_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_MortgageInsuranceCompany_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_128_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Insurance_Company_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_128_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
+                  state="escaped">_x003C_referenceMetadata_x003E__x003C_referenceColumns_x003E__x003C_referenceColumn_x0020_name_x003D__x0022_MortgageInsuranceCompanyID_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_50_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_MortgageInsuranceCompany_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_128_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C_referenceColumn_x0020_name_x003D__x0022_Insurance_Company_x0022__x0020_dataType_x003D__x0022_DT_STR_x0022__x0020_length_x003D__x0022_128_x0022__x0020_precision_x003D__x0022_0_x0022__x0020_scale_x003D__x0022_0_x0022__x0020_codePage_x003D__x0022_1252_x0022__x002F__x003E__x003C__x002F_referenceColumns_x003E__x003C__x002F_referenceMetadata_x003E__x000D__x000A_</property>
                 <property
                   dataType="System.Boolean"
                   description="If true, each input record will be directly compared against EVERY record in the reference table.  This may produce slightly better results, but will be extremely slow unless the number of records in the reference table is very small.  Note that the entire reference table will be loaded into main memory if this option is enabled.  This option is primarily intended for debugging purposes and should be used with care."
@@ -6212,7 +6212,7 @@
                       refId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Inputs[Fuzzy Lookup Input].Columns[MarketSourceName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="128"
+                      cachedLength="100"
                       cachedName="MarketSourceName"
                       lineageId="Package\DFT_LendingQB_SharePoint\Lookup_AddMarketSourceName.Outputs[Lookup Match Output].Columns[MarketSourceName]">
                       <properties>
@@ -9358,7 +9358,7 @@
                       refId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[MarketSourceName]"
                       codePage="1252"
                       dataType="str"
-                      length="128"
+                      length="100"
                       lineageId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[MarketSourceName]"
                       name="MarketSourceName">
                       <properties>
@@ -9511,7 +9511,7 @@ where [refTable].[MarketSourceCode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="MarketSourceLookupID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MarketSourceCode" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MarketSourceName" dataType="DT_STR" length="128" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="MarketSourceLookupID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MarketSourceCode" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MarketSourceName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -9574,7 +9574,7 @@ where [refTable].[MarketSourceCode] = ?</property>
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
-                      length="128"
+                      length="100"
                       lineageId="Package\DFT_LendingQB_SharePoint\Lookup_AddMarketSourceName.Outputs[Lookup Match Output].Columns[MarketSourceName]"
                       name="MarketSourceName"
                       truncationRowDisposition="FailComponent">
@@ -11874,7 +11874,7 @@ where [refTable].[MarketSourceCode] = ?</property>
                       refId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].Columns[MarketSourceName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="128"
+                      cachedLength="100"
                       cachedName="MarketSourceName"
                       externalMetadataColumnId="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable.Inputs[OLE DB Destination Input].ExternalColumns[MarketSourceName]"
                       lineageId="Package\DFT_LendingQB_SharePoint\Fuzzy Lookup_MotgageCrossWolk.Outputs[Fuzzy Lookup Output].Columns[MarketSourceName]" />
@@ -13058,13 +13058,10 @@ where [refTable].[MarketSourceCode] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0DC56DE1-FB1D-4B19-A893-17CC5CBA7314}"
-          SQLTask:SqlStatementSource="Select ? , MAX(LastModifiedDate) AS MaxLastModifiedDate&#xA;FROM Stg_Zekiyos_Gebresilassie_QL&#xA;"
+          SQLTask:SqlStatementSource="SELECT MAX(LastModifiedDate) AS MaxLastModifiedDate&#xA;FROM Stg_Zekiyos_Gebresilassie_QL&#xA;where SourceName= ?&#xA;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::VarLQBSourceName" />
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="1"
             SQLTask:DtsVariableName="User::VarMaxLastModifiedDate" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -13189,6 +13186,36 @@ where [refTable].[MarketSourceCode] = ?</property>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::VarFromEmail,User::VarPassword,User::VarSmtpClient,User::VarSmtpServerPort,User::varSubject,User::VarToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_d8976dbe84bc4395a5465d5521c0042e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_d8976dbe84bc4395a5465d5521c0042e")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -13307,35 +13334,6 @@ where [refTable].[MarketSourceCode] = ?</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
-    "ings")]
-
-namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_d8976dbe84bc4395a5465d5521c0042e.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -13588,35 +13586,34 @@ namespace ST_d8976dbe84bc4395a5465d5521c0042e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_d8976dbe84bc4395a5465d5521c0042e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_d8976dbe84bc4395a5465d5521c0042e")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Settings.settings"
                 Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -13992,7 +13989,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\DFT_LendingQB_SharePoint\OLE DB_StagingTable"
-          TopLeft="62.1428582011438,308.176474910294" />
+          TopLeft="80.714287088842,305.882357231061" />
         <NodeLayout
           Size="194.4,41.6"
           Id="Package\DFT_LendingQB_SharePoint\DC_Insurance_Company"
@@ -14021,52 +14018,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="187.2,41.6"
           Id="Package\DFT_LendingQB_SharePoint\CondSplt_Remove_test"
           TopLeft="640.000010899135,56.5882360877463" />
-        <EdgeLayout
-          Id="Package\DFT_LendingQB_SharePoint.Paths[Lookup Match Output]"
-          TopLeft="1053.91430003156,99.9088243471714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,204.444121097734"
-              Start="0,0"
-              End="0,196.944121097734">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,196.944121097734" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,92.667373048867,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_LendingQB_SharePoint.Paths[Fuzzy Lookup Output]"
-          TopLeft="931.457155422776,325.535298391445">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-94.8285734113379,0"
-              Start="0,0"
-              End="-87.3285734113379,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-87.3285734113379,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_LendingQB_SharePoint.Paths[Derived Column Output1]"
           TopLeft="542.442863778436,76.8147066679382">
@@ -14131,24 +14082,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-6.66066984814045,5,122.1927734375,9.7490234375"
+              BoundingBox="-6.66066984814051,5,122.1927734375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_LendingQB_SharePoint.Paths[Row Count Output 1]"
-          TopLeft="391.428578094561,329.741180803372">
+          TopLeft="391.428578094561,328.594121963756">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-148.485719893417,0"
+              EndConnector="-129.914291005719,0"
               Start="0,0"
-              End="-140.985719893417,0">
+              End="-122.414291005719,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-140.985719893417,0" />
+                    End="-122.414291005719,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14171,6 +14122,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="113.021433975382,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_LendingQB_SharePoint.Paths[Lookup Match Output]"
+          TopLeft="1053.91430003156,99.9088243471714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,204.444121097734"
+              Start="0,0"
+              End="0,196.944121097734">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,196.944121097734" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,92.667373048867,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_LendingQB_SharePoint.Paths[Fuzzy Lookup Output]"
+          TopLeft="931.457155422776,325.535298391445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94.8285734113379,0"
+              Start="0,0"
+              End="-87.3285734113379,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-87.3285734113379,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

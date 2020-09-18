@@ -2,43 +2,43 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Zekiyos_Gebresilassie_SSIS_Packages</Name>
-    <LastWriteTime>2020-09-15T00:22:06.8396841Z</LastWriteTime>
+    <LastWriteTime>2020-09-16T03:54:00.56959Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_LendingQB.dtsx</Name>
-      <LastWriteTime>2020-09-15T04:03:55.4946476Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx</Name>
-      <LastWriteTime>2020-08-24T04:58:22.0368052Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_LendingPad.dtsx</Name>
-      <LastWriteTime>2020-08-24T04:56:43.0476531Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_SimpleNexus.dtsx</Name>
-      <LastWriteTime>2020-09-12T16:30:48.1707934Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_UberWriter.dtsx</Name>
-      <LastWriteTime>2020-09-15T00:22:06.8107633Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx</Name>
-      <LastWriteTime>2020-09-07T22:20:04.4179743Z</LastWriteTime>
+      <LastWriteTime>2020-09-16T06:18:44.5256009Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_QuickenLoan.dtsx</Name>
-      <LastWriteTime>2020-09-15T04:46:32.5008034Z</LastWriteTime>
+      <LastWriteTime>2020-09-16T06:38:53.9183155Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Zekiyos_Gebresilassie_LendingPad.dtsx</Name>
+      <LastWriteTime>2020-09-15T05:16:13.466066Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Zekiyos_Gebresilassie_UberWriter.dtsx</Name>
+      <LastWriteTime>2020-09-16T06:11:01.1111261Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Zekiyos_Gebresilassie_SimpleNexus.dtsx</Name>
+      <LastWriteTime>2020-09-15T05:16:51.3482896Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx</Name>
+      <LastWriteTime>2020-09-15T23:55:16.328798Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx</Name>
+      <LastWriteTime>2020-09-15T05:32:46.7311528Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
