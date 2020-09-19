@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Zekiyos_Gebresilassie_QuickenLoan1"
   DTS:PackageType="5"
-  DTS:VersionBuild="372"
-  DTS:VersionGUID="{D1AC14EC-0DB7-4A70-A91D-B6DDCD1F9586}">
+  DTS:VersionBuild="373"
+  DTS:VersionGUID="{1C96085E-60A2-408E-8732-6A7F1A6BC5E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -74,7 +74,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/15 23:38:58  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/17 21:55:33  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/15/2020 11:38:59 PM</DTS:VariableValue>
+        DTS:DataType="7">9/17/2020 9:55:34 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""

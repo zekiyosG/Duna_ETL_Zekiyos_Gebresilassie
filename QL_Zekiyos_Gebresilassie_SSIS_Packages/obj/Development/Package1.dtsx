@@ -1,0 +1,2338 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/18/2020 8:42:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VTCGGJP"
+  DTS:CreatorName="DESKTOP-VTCGGJP\Administrator"
+  DTS:DTSID="{1BCBC01B-16D1-402E-A30B-F005D1398ECD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{C59B1BA7-8155-4D3B-95C9-B2FB070A5266}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.JSONs]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{899BFF1E-CC94-4C52-ABC4-164BF75B572B}"
+      DTS:ObjectName="LocalHost.JSONs">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=JSONs;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DD42D0AA-50D5-406D-B491-7217DD623B36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB_Json"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB_Json"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+       
+FROM OPENROWSET (BULK 'D:\WARNING VIRUS DETECTED\duna training files\Project\FTP Files\LendingPad\LendingPad.json', SINGLE_CLOB) as js
+
+CROSS APPLY OPENJSON(BulkColumn)
+WITH (ActualClosingDate	 datetime,
+AmortizationType	 varchar(128),
+AnnualPercentageRate	 numeric(23,10),
+ApplicationDate	 datetime,
+ApplicationReturnedDate	 datetime,
+ApplicationStartedDate	 datetime,
+AppraisedValue	 numeric(23,10),
+ApprovalDate	 datetime,
+ApprovalStatus	 varchar(128),
+BorrAddress	 varchar(159),
+BorrBirthDate	 date,
+BorrCity	 varchar(128),
+BorrEmailAddress	 nvarchar(100),
+BorrFirstName	 nvarchar(50),
+BorrGender	 nvarchar(1),
+BorrLastName	 nvarchar(50),
+BorrNoYearsOnJob	 numeric(24,10),
+BorrState	 varchar(128),
+BorrTotalIncome	 numeric(26,10),
+BorrZip	 varchar(128),
+BottomQualificationRatios	 numeric(23,10),
+Channel	 varchar(10),
+CloserFullName	 varchar(128),
+ClosingDisclosureRecievedDate	 datetime,
+CombinedLoanToValueRatio	 numeric(23,10),
+ConditionalApprovalDate	 datetime,
+ConditionsReceivedDate	 datetime,
+CreditPullDate	 datetime,
+CurrentMilestone	 varchar(128),
+CurrentMilestoneTrackingDate	 datetime,
+DenialDate	 datetime,
+DisbursementDate	 datetime,
+DocumentPreparedDate	 datetime,
+DocumentResubmittedDate	 datetime,
+DocumentReviewedDate	 datetime,
+DocumentShippingDate	 datetime,
+DocumentSigningDate	 datetime,
+DocumentSubmittalDate	 datetime,
+EstimatedLoanClosingDate	 datetime,
+FinalDocumentDate	 datetime,
+FundedTier	int,
+FinallCreditScore	 numeric(24,10),
+FundedDate	 datetime,
+HouseOnSaleState	 varchar(128),
+HouseOnSaleStreet	 varchar(159),
+HouseOnSaleZip	 varchar(128),
+InitialClosingDisclosureSentDate	 datetime,
+InitialDisclosureProvidedDate	 datetime,
+InitialLoanEstimateDueDate	 datetime,
+InitialLoanEstimateSentDate	 datetime,
+InterestRate	 numeric(23,10),
+IntialLoanAmount	 numeric(23,10),
+IsBorrSelfEmployeedFlag	 varchar(128),
+IsConstructionLoan	 varchar(128),
+LastLoadDate	 datetime,
+LastModifiedDate	 datetime,
+LeadDate	 datetime,
+LeadId	 varchar(132),
+LeadSource	 varchar(255),
+LeadSourceType	 varchar(255),
+LoanExpirationDate	 datetime,
+LoanID	 varchar(72),
+LoanInformationDocumentDate	 datetime,
+LoanOfficerEmail	 nvarchar(100),
+LoanOfficerFullName	 nvarchar(101), 
+LoanProgram	 varchar(128),
+LoanPurpose	 varchar(128),
+LoanSetupDate	 datetime,
+LoanStatus	 varchar(128),
+LoanStatusActionDate	 datetime,
+LoanTerm	 numeric(23,10),
+LoanToValueRatio	 numeric(23,10),
+LoanType	 varchar(128),
+LockDate	 datetime,
+LockExpireDate	 datetime,
+MarketSource	 varchar(7),
+MilestoneStatus	 varchar(128),
+MortgageInsuranceCompany	 varchar(128),
+Net_Buy_Price	 numeric(23,10),
+OfficeID	 varchar(100),
+OriginationFee	 numeric(27,13),
+ProcessingDate	 datetime,
+ProcessorFullName	 varchar(128),
+PropertyOccupancyType	 varchar(128),
+QAFailDate	 datetime,
+QAStatus	 varchar(128),
+SourceName	 varchar(128),
+TopQualificationRatios	 numeric(23,10),
+TotalFees	 numeric(27,13),
+TotalLoanAmt	 numeric(23,10),
+UnderwriterFullName	 varchar(128),
+UnderwriterRiskAssess	 varchar(128),
+UnderwritingReceivedDate	 datetime
+) AS j</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB_Json.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.JSONs]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.JSONs]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BulkColumn]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BulkColumn]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BulkColumn]"
+                      name="BulkColumn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ActualClosingDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ActualClosingDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ActualClosingDate]"
+                      name="ActualClosingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AmortizationType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AmortizationType]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AmortizationType]"
+                      name="AmortizationType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AnnualPercentageRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AnnualPercentageRate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AnnualPercentageRate]"
+                      name="AnnualPercentageRate"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationDate]"
+                      name="ApplicationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationReturnedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationReturnedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationReturnedDate]"
+                      name="ApplicationReturnedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationStartedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationStartedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApplicationStartedDate]"
+                      name="ApplicationStartedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AppraisedValue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AppraisedValue]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[AppraisedValue]"
+                      name="AppraisedValue"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApprovalDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApprovalDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApprovalDate]"
+                      name="ApprovalDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApprovalStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApprovalStatus]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ApprovalStatus]"
+                      name="ApprovalStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrAddress]"
+                      length="159"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrAddress]"
+                      name="BorrAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrBirthDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrBirthDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrBirthDate]"
+                      name="BorrBirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrCity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrCity]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrCity]"
+                      name="BorrCity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrEmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrEmailAddress]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrEmailAddress]"
+                      name="BorrEmailAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrFirstName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrFirstName]"
+                      name="BorrFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrGender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrGender]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrGender]"
+                      name="BorrGender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrLastName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrLastName]"
+                      name="BorrLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrNoYearsOnJob]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrNoYearsOnJob]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrNoYearsOnJob]"
+                      name="BorrNoYearsOnJob"
+                      precision="24"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrState]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrState]"
+                      name="BorrState"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrTotalIncome]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrTotalIncome]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrTotalIncome]"
+                      name="BorrTotalIncome"
+                      precision="26"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrZip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrZip]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BorrZip]"
+                      name="BorrZip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BottomQualificationRatios]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BottomQualificationRatios]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[BottomQualificationRatios]"
+                      name="BottomQualificationRatios"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[Channel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[Channel]"
+                      name="Channel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CloserFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CloserFullName]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CloserFullName]"
+                      name="CloserFullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ClosingDisclosureRecievedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ClosingDisclosureRecievedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ClosingDisclosureRecievedDate]"
+                      name="ClosingDisclosureRecievedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CombinedLoanToValueRatio]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CombinedLoanToValueRatio]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CombinedLoanToValueRatio]"
+                      name="CombinedLoanToValueRatio"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ConditionalApprovalDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ConditionalApprovalDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ConditionalApprovalDate]"
+                      name="ConditionalApprovalDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ConditionsReceivedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ConditionsReceivedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ConditionsReceivedDate]"
+                      name="ConditionsReceivedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CreditPullDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CreditPullDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CreditPullDate]"
+                      name="CreditPullDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CurrentMilestone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CurrentMilestone]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CurrentMilestone]"
+                      name="CurrentMilestone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CurrentMilestoneTrackingDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CurrentMilestoneTrackingDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[CurrentMilestoneTrackingDate]"
+                      name="CurrentMilestoneTrackingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DenialDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DenialDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DenialDate]"
+                      name="DenialDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DisbursementDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DisbursementDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DisbursementDate]"
+                      name="DisbursementDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentPreparedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentPreparedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentPreparedDate]"
+                      name="DocumentPreparedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentResubmittedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentResubmittedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentResubmittedDate]"
+                      name="DocumentResubmittedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentReviewedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentReviewedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentReviewedDate]"
+                      name="DocumentReviewedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentShippingDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentShippingDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentShippingDate]"
+                      name="DocumentShippingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentSigningDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentSigningDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentSigningDate]"
+                      name="DocumentSigningDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentSubmittalDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentSubmittalDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[DocumentSubmittalDate]"
+                      name="DocumentSubmittalDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[EstimatedLoanClosingDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[EstimatedLoanClosingDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[EstimatedLoanClosingDate]"
+                      name="EstimatedLoanClosingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FinalDocumentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FinalDocumentDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FinalDocumentDate]"
+                      name="FinalDocumentDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FundedTier]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FundedTier]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FundedTier]"
+                      name="FundedTier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FinallCreditScore]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FinallCreditScore]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FinallCreditScore]"
+                      name="FinallCreditScore"
+                      precision="24"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FundedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FundedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[FundedDate]"
+                      name="FundedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleState]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleState]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleState]"
+                      name="HouseOnSaleState"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleStreet]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleStreet]"
+                      length="159"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleStreet]"
+                      name="HouseOnSaleStreet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleZip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleZip]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[HouseOnSaleZip]"
+                      name="HouseOnSaleZip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialClosingDisclosureSentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialClosingDisclosureSentDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialClosingDisclosureSentDate]"
+                      name="InitialClosingDisclosureSentDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialDisclosureProvidedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialDisclosureProvidedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialDisclosureProvidedDate]"
+                      name="InitialDisclosureProvidedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialLoanEstimateDueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialLoanEstimateDueDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialLoanEstimateDueDate]"
+                      name="InitialLoanEstimateDueDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialLoanEstimateSentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialLoanEstimateSentDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InitialLoanEstimateSentDate]"
+                      name="InitialLoanEstimateSentDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InterestRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InterestRate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[InterestRate]"
+                      name="InterestRate"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IntialLoanAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IntialLoanAmount]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IntialLoanAmount]"
+                      name="IntialLoanAmount"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IsBorrSelfEmployeedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IsBorrSelfEmployeedFlag]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IsBorrSelfEmployeedFlag]"
+                      name="IsBorrSelfEmployeedFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IsConstructionLoan]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IsConstructionLoan]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[IsConstructionLoan]"
+                      name="IsConstructionLoan"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LastLoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LastLoadDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LastLoadDate]"
+                      name="LastLoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LastModifiedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LastModifiedDate]"
+                      name="LastModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadDate]"
+                      name="LeadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadId]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadId]"
+                      length="132"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadId]"
+                      name="LeadId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadSource]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadSource]"
+                      name="LeadSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadSourceType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadSourceType]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LeadSourceType]"
+                      name="LeadSourceType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanExpirationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanExpirationDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanExpirationDate]"
+                      name="LoanExpirationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanID]"
+                      length="72"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanID]"
+                      name="LoanID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanInformationDocumentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanInformationDocumentDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanInformationDocumentDate]"
+                      name="LoanInformationDocumentDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanOfficerEmail]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanOfficerEmail]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanOfficerEmail]"
+                      name="LoanOfficerEmail"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanOfficerFullName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanOfficerFullName]"
+                      length="101"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanOfficerFullName]"
+                      name="LoanOfficerFullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanProgram]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanProgram]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanProgram]"
+                      name="LoanProgram"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanPurpose]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanPurpose]"
+                      name="LoanPurpose"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanSetupDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanSetupDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanSetupDate]"
+                      name="LoanSetupDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanStatus]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanStatus]"
+                      name="LoanStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanStatusActionDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanStatusActionDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanStatusActionDate]"
+                      name="LoanStatusActionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanTerm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanTerm]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanTerm]"
+                      name="LoanTerm"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanToValueRatio]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanToValueRatio]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanToValueRatio]"
+                      name="LoanToValueRatio"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanType]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LoanType]"
+                      name="LoanType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LockDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LockDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LockDate]"
+                      name="LockDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LockExpireDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LockExpireDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[LockExpireDate]"
+                      name="LockExpireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MarketSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MarketSource]"
+                      length="7"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MarketSource]"
+                      name="MarketSource"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MilestoneStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MilestoneStatus]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MilestoneStatus]"
+                      name="MilestoneStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MortgageInsuranceCompany]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MortgageInsuranceCompany]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[MortgageInsuranceCompany]"
+                      name="MortgageInsuranceCompany"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[Net_Buy_Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[Net_Buy_Price]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[Net_Buy_Price]"
+                      name="Net_Buy_Price"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[OfficeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[OfficeID]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[OfficeID]"
+                      name="OfficeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[OriginationFee]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[OriginationFee]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[OriginationFee]"
+                      name="OriginationFee"
+                      precision="27"
+                      scale="13"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ProcessingDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ProcessingDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ProcessingDate]"
+                      name="ProcessingDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ProcessorFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ProcessorFullName]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[ProcessorFullName]"
+                      name="ProcessorFullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[PropertyOccupancyType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[PropertyOccupancyType]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[PropertyOccupancyType]"
+                      name="PropertyOccupancyType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[QAFailDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[QAFailDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[QAFailDate]"
+                      name="QAFailDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[QAStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[QAStatus]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[QAStatus]"
+                      name="QAStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[SourceName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[SourceName]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[SourceName]"
+                      name="SourceName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TopQualificationRatios]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TopQualificationRatios]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TopQualificationRatios]"
+                      name="TopQualificationRatios"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TotalFees]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TotalFees]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TotalFees]"
+                      name="TotalFees"
+                      precision="27"
+                      scale="13"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TotalLoanAmt]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TotalLoanAmt]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[TotalLoanAmt]"
+                      name="TotalLoanAmt"
+                      precision="23"
+                      scale="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwriterFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterFullName]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwriterFullName]"
+                      name="UnderwriterFullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwriterRiskAssess]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterRiskAssess]"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwriterRiskAssess]"
+                      name="UnderwriterRiskAssess"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwritingReceivedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwritingReceivedDate]"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].Columns[UnderwritingReceivedDate]"
+                      name="UnderwritingReceivedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BulkColumn]"
+                      codePage="1252"
+                      dataType="text"
+                      name="BulkColumn" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ActualClosingDate]"
+                      dataType="dbTimeStamp"
+                      name="ActualClosingDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AmortizationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="AmortizationType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AnnualPercentageRate]"
+                      dataType="numeric"
+                      name="AnnualPercentageRate"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationDate]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationReturnedDate]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationReturnedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApplicationStartedDate]"
+                      dataType="dbTimeStamp"
+                      name="ApplicationStartedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[AppraisedValue]"
+                      dataType="numeric"
+                      name="AppraisedValue"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApprovalDate]"
+                      dataType="dbTimeStamp"
+                      name="ApprovalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ApprovalStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="ApprovalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="159"
+                      name="BorrAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrBirthDate]"
+                      dataType="dbDate"
+                      name="BorrBirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrCity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="BorrCity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrEmailAddress]"
+                      dataType="wstr"
+                      length="100"
+                      name="BorrEmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BorrFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrGender]"
+                      dataType="wstr"
+                      length="1"
+                      name="BorrGender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrLastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="BorrLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrNoYearsOnJob]"
+                      dataType="numeric"
+                      name="BorrNoYearsOnJob"
+                      precision="24"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="BorrState" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrTotalIncome]"
+                      dataType="numeric"
+                      name="BorrTotalIncome"
+                      precision="26"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BorrZip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="BorrZip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[BottomQualificationRatios]"
+                      dataType="numeric"
+                      name="BottomQualificationRatios"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Channel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CloserFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CloserFullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ClosingDisclosureRecievedDate]"
+                      dataType="dbTimeStamp"
+                      name="ClosingDisclosureRecievedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CombinedLoanToValueRatio]"
+                      dataType="numeric"
+                      name="CombinedLoanToValueRatio"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ConditionalApprovalDate]"
+                      dataType="dbTimeStamp"
+                      name="ConditionalApprovalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ConditionsReceivedDate]"
+                      dataType="dbTimeStamp"
+                      name="ConditionsReceivedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CreditPullDate]"
+                      dataType="dbTimeStamp"
+                      name="CreditPullDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CurrentMilestone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="CurrentMilestone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[CurrentMilestoneTrackingDate]"
+                      dataType="dbTimeStamp"
+                      name="CurrentMilestoneTrackingDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DenialDate]"
+                      dataType="dbTimeStamp"
+                      name="DenialDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DisbursementDate]"
+                      dataType="dbTimeStamp"
+                      name="DisbursementDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentPreparedDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentPreparedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentResubmittedDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentResubmittedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentReviewedDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentReviewedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentShippingDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentShippingDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentSigningDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentSigningDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[DocumentSubmittalDate]"
+                      dataType="dbTimeStamp"
+                      name="DocumentSubmittalDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[EstimatedLoanClosingDate]"
+                      dataType="dbTimeStamp"
+                      name="EstimatedLoanClosingDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FinalDocumentDate]"
+                      dataType="dbTimeStamp"
+                      name="FinalDocumentDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FundedTier]"
+                      dataType="i4"
+                      name="FundedTier" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FinallCreditScore]"
+                      dataType="numeric"
+                      name="FinallCreditScore"
+                      precision="24"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[FundedDate]"
+                      dataType="dbTimeStamp"
+                      name="FundedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="HouseOnSaleState" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleStreet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="159"
+                      name="HouseOnSaleStreet" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[HouseOnSaleZip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="HouseOnSaleZip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialClosingDisclosureSentDate]"
+                      dataType="dbTimeStamp"
+                      name="InitialClosingDisclosureSentDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialDisclosureProvidedDate]"
+                      dataType="dbTimeStamp"
+                      name="InitialDisclosureProvidedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialLoanEstimateDueDate]"
+                      dataType="dbTimeStamp"
+                      name="InitialLoanEstimateDueDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InitialLoanEstimateSentDate]"
+                      dataType="dbTimeStamp"
+                      name="InitialLoanEstimateSentDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[InterestRate]"
+                      dataType="numeric"
+                      name="InterestRate"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IntialLoanAmount]"
+                      dataType="numeric"
+                      name="IntialLoanAmount"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IsBorrSelfEmployeedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="IsBorrSelfEmployeedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[IsConstructionLoan]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="IsConstructionLoan" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LastLoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LastLoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="LastModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadDate]"
+                      dataType="dbTimeStamp"
+                      name="LeadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      name="LeadId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LeadSource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LeadSourceType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LeadSourceType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanExpirationDate]"
+                      dataType="dbTimeStamp"
+                      name="LoanExpirationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="72"
+                      name="LoanID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanInformationDocumentDate]"
+                      dataType="dbTimeStamp"
+                      name="LoanInformationDocumentDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanOfficerEmail]"
+                      dataType="wstr"
+                      length="100"
+                      name="LoanOfficerEmail" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanOfficerFullName]"
+                      dataType="wstr"
+                      length="101"
+                      name="LoanOfficerFullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanProgram]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="LoanProgram" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="LoanPurpose" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanSetupDate]"
+                      dataType="dbTimeStamp"
+                      name="LoanSetupDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="LoanStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanStatusActionDate]"
+                      dataType="dbTimeStamp"
+                      name="LoanStatusActionDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanTerm]"
+                      dataType="numeric"
+                      name="LoanTerm"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanToValueRatio]"
+                      dataType="numeric"
+                      name="LoanToValueRatio"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LoanType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="LoanType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LockDate]"
+                      dataType="dbTimeStamp"
+                      name="LockDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[LockExpireDate]"
+                      dataType="dbTimeStamp"
+                      name="LockExpireDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MarketSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="MarketSource" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MilestoneStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="MilestoneStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[MortgageInsuranceCompany]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="MortgageInsuranceCompany" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[Net_Buy_Price]"
+                      dataType="numeric"
+                      name="Net_Buy_Price"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[OfficeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OfficeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[OriginationFee]"
+                      dataType="numeric"
+                      name="OriginationFee"
+                      precision="27"
+                      scale="13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ProcessingDate]"
+                      dataType="dbTimeStamp"
+                      name="ProcessingDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[ProcessorFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="ProcessorFullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[PropertyOccupancyType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="PropertyOccupancyType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[QAFailDate]"
+                      dataType="dbTimeStamp"
+                      name="QAFailDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[QAStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="QAStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[SourceName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="SourceName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TopQualificationRatios]"
+                      dataType="numeric"
+                      name="TopQualificationRatios"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TotalFees]"
+                      dataType="numeric"
+                      name="TotalFees"
+                      precision="27"
+                      scale="13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[TotalLoanAmt]"
+                      dataType="numeric"
+                      name="TotalLoanAmt"
+                      precision="23"
+                      scale="10" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="UnderwriterFullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterRiskAssess]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      name="UnderwriterRiskAssess" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output].ExternalColumns[UnderwritingReceivedDate]"
+                      dataType="dbTimeStamp"
+                      name="UnderwritingReceivedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BulkColumn]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BulkColumn]"
+                      name="BulkColumn" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ActualClosingDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ActualClosingDate]"
+                      name="ActualClosingDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AmortizationType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AmortizationType]"
+                      name="AmortizationType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AnnualPercentageRate]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AnnualPercentageRate]"
+                      name="AnnualPercentageRate"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationDate]"
+                      name="ApplicationDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationReturnedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationReturnedDate]"
+                      name="ApplicationReturnedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationStartedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApplicationStartedDate]"
+                      name="ApplicationStartedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AppraisedValue]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[AppraisedValue]"
+                      name="AppraisedValue"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApprovalDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApprovalDate]"
+                      name="ApprovalDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApprovalStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ApprovalStatus]"
+                      name="ApprovalStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="159"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrAddress]"
+                      name="BorrAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrBirthDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrBirthDate]"
+                      name="BorrBirthDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrCity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrCity]"
+                      name="BorrCity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrEmailAddress]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrEmailAddress]"
+                      name="BorrEmailAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrFirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrFirstName]"
+                      name="BorrFirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrGender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrGender]"
+                      name="BorrGender" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrLastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrLastName]"
+                      name="BorrLastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrNoYearsOnJob]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrNoYearsOnJob]"
+                      name="BorrNoYearsOnJob"
+                      precision="24"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrState]"
+                      name="BorrState" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrTotalIncome]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrTotalIncome]"
+                      name="BorrTotalIncome"
+                      precision="26"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrZip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BorrZip]"
+                      name="BorrZip" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BottomQualificationRatios]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[BottomQualificationRatios]"
+                      name="BottomQualificationRatios"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                      name="Channel" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CloserFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CloserFullName]"
+                      name="CloserFullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ClosingDisclosureRecievedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ClosingDisclosureRecievedDate]"
+                      name="ClosingDisclosureRecievedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CombinedLoanToValueRatio]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CombinedLoanToValueRatio]"
+                      name="CombinedLoanToValueRatio"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ConditionalApprovalDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ConditionalApprovalDate]"
+                      name="ConditionalApprovalDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ConditionsReceivedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ConditionsReceivedDate]"
+                      name="ConditionsReceivedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CreditPullDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CreditPullDate]"
+                      name="CreditPullDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CurrentMilestone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CurrentMilestone]"
+                      name="CurrentMilestone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CurrentMilestoneTrackingDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[CurrentMilestoneTrackingDate]"
+                      name="CurrentMilestoneTrackingDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DenialDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DenialDate]"
+                      name="DenialDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DisbursementDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DisbursementDate]"
+                      name="DisbursementDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentPreparedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentPreparedDate]"
+                      name="DocumentPreparedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentResubmittedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentResubmittedDate]"
+                      name="DocumentResubmittedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentReviewedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentReviewedDate]"
+                      name="DocumentReviewedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentShippingDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentShippingDate]"
+                      name="DocumentShippingDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentSigningDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentSigningDate]"
+                      name="DocumentSigningDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentSubmittalDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[DocumentSubmittalDate]"
+                      name="DocumentSubmittalDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[EstimatedLoanClosingDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[EstimatedLoanClosingDate]"
+                      name="EstimatedLoanClosingDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FinalDocumentDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FinalDocumentDate]"
+                      name="FinalDocumentDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FundedTier]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FundedTier]"
+                      name="FundedTier" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FinallCreditScore]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FinallCreditScore]"
+                      name="FinallCreditScore"
+                      precision="24"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FundedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[FundedDate]"
+                      name="FundedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleState]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleState]"
+                      name="HouseOnSaleState" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleStreet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="159"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleStreet]"
+                      name="HouseOnSaleStreet" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleZip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[HouseOnSaleZip]"
+                      name="HouseOnSaleZip" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialClosingDisclosureSentDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialClosingDisclosureSentDate]"
+                      name="InitialClosingDisclosureSentDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialDisclosureProvidedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialDisclosureProvidedDate]"
+                      name="InitialDisclosureProvidedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialLoanEstimateDueDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialLoanEstimateDueDate]"
+                      name="InitialLoanEstimateDueDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialLoanEstimateSentDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InitialLoanEstimateSentDate]"
+                      name="InitialLoanEstimateSentDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InterestRate]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[InterestRate]"
+                      name="InterestRate"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IntialLoanAmount]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IntialLoanAmount]"
+                      name="IntialLoanAmount"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IsBorrSelfEmployeedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IsBorrSelfEmployeedFlag]"
+                      name="IsBorrSelfEmployeedFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IsConstructionLoan]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[IsConstructionLoan]"
+                      name="IsConstructionLoan" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LastLoadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LastLoadDate]"
+                      name="LastLoadDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LastModifiedDate]"
+                      name="LastModifiedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadDate]"
+                      name="LeadDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadId]"
+                      codePage="1252"
+                      dataType="str"
+                      length="132"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadId]"
+                      name="LeadId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadSource]"
+                      name="LeadSource" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadSourceType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LeadSourceType]"
+                      name="LeadSourceType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanExpirationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanExpirationDate]"
+                      name="LoanExpirationDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="72"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanID]"
+                      name="LoanID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanInformationDocumentDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanInformationDocumentDate]"
+                      name="LoanInformationDocumentDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanOfficerEmail]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanOfficerEmail]"
+                      name="LoanOfficerEmail" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanOfficerFullName]"
+                      dataType="wstr"
+                      length="101"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanOfficerFullName]"
+                      name="LoanOfficerFullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanProgram]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanProgram]"
+                      name="LoanProgram" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanPurpose]"
+                      name="LoanPurpose" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanSetupDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanSetupDate]"
+                      name="LoanSetupDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanStatus]"
+                      name="LoanStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanStatusActionDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanStatusActionDate]"
+                      name="LoanStatusActionDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanTerm]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanTerm]"
+                      name="LoanTerm"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanToValueRatio]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanToValueRatio]"
+                      name="LoanToValueRatio"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LoanType]"
+                      name="LoanType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LockDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LockDate]"
+                      name="LockDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LockExpireDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[LockExpireDate]"
+                      name="LockExpireDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MarketSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MarketSource]"
+                      name="MarketSource" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MilestoneStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MilestoneStatus]"
+                      name="MilestoneStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MortgageInsuranceCompany]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[MortgageInsuranceCompany]"
+                      name="MortgageInsuranceCompany" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[Net_Buy_Price]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[Net_Buy_Price]"
+                      name="Net_Buy_Price"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[OfficeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[OfficeID]"
+                      name="OfficeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[OriginationFee]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[OriginationFee]"
+                      name="OriginationFee"
+                      precision="27"
+                      scale="13" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ProcessingDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ProcessingDate]"
+                      name="ProcessingDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ProcessorFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ProcessorFullName]"
+                      name="ProcessorFullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[PropertyOccupancyType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[PropertyOccupancyType]"
+                      name="PropertyOccupancyType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[QAFailDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[QAFailDate]"
+                      name="QAFailDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[QAStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[QAStatus]"
+                      name="QAStatus" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[SourceName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[SourceName]"
+                      name="SourceName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TopQualificationRatios]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TopQualificationRatios]"
+                      name="TopQualificationRatios"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TotalFees]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TotalFees]"
+                      name="TotalFees"
+                      precision="27"
+                      scale="13" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TotalLoanAmt]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[TotalLoanAmt]"
+                      name="TotalLoanAmt"
+                      precision="23"
+                      scale="10" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwriterFullName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwriterFullName]"
+                      name="UnderwriterFullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwriterRiskAssess]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwriterRiskAssess]"
+                      name="UnderwriterRiskAssess" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwritingReceivedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[UnderwritingReceivedDate]"
+                      name="UnderwritingReceivedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB_Json.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="305.6,81.6"
+          Id="Package\Data Flow Task\OLE DB_Json"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="256,201" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="212.8,141.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.2,59.4"
+              Start="0,0"
+              End="103.2,51.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7"
+                    Point2="0,29.7"
+                    Point3="4,29.7" />
+                  <mssgle:LineSegment
+                    End="99.1999999999999,29.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.1999999999999,29.7"
+                    Point2="103.2,29.7"
+                    Point3="103.2,33.7" />
+                  <mssgle:LineSegment
+                    End="103.2,51.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
