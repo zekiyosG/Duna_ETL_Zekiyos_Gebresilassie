@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-VTCGGJP</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAACAAAAAAAQZgAAAAEAACAAAADqVvhfEuZEa9oOa9vk6g7n87YkH9ai61TAqghFVy6nFwAAAAAOgAAAAAIAACAAAADwc/RnctL98dn3xsa2v04grIYVFFjyjMFOVmPIVtYPR5AAAAAwiK1BYyvHj0oaNoAx9RI+OTznLFZobnBUbDjpcgm8Tr/5sHjqZpGTqW0px/vq9qJzl8DhWUGCSjlHs50rCQ3epXpLPrCG5DLs7WyoXplGGSKgzxsgNp2iGlg7wLcdKPxFnRl34ifgxMZ7lF9Skdiogs0XJRMvIT6pCT/m2wfnZHT52+B4bHY4pM6J7flxaA9AAAAAuZE/nfnDHYEolYVJXy2udPo/Qxg66vcMTFBK6sLFqPkPXIkuJ4grKiw3yr0MAKFy+j3vGcH/SGZ/RSQVC+RfCg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApzupR2CBSEa7eT3xMAFLmQAAAAACAAAAAAAQZgAAAAEAACAAAADWoyGHZklFtWDCj3VVYC5j5sCzfNVZR5lRmRDOI6ShgwAAAAAOgAAAAAIAACAAAAAmLvVFUmFpRCPaDlZq52ZAzl2FE43+2EbJ6VYfTeEu5JAAAAA3PDyy1/U8IKc7ZWQHOxcrT36wmdpBRsXMEtwwa8uXjispNqfYflzsuI6Tpyk6FZLuJ7RbWvtalzx9p8HQNIUao9RuVpfmXs9Ir0nwKutVT7Fx79xH4HgYbxzvtW9sbiPHqyvcC71s7dHMW1ZP9fN8zQFukJZhqs31QmDfctz79tOAuapD4MRkQb8+HNjmVspAAAAAynoipOvwkOTwGwFWEwIeCqwqn02aTbRTbhOhTHK+lMVrCnrBOM3qgToKLT3WsAeroaPzuwkLH1W6D2Oo6jEV1Q==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -1271,20 +1271,19 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">422</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">435</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{60C92F97-3D97-414C-9CDC-107B14142E59}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C8752106-DBA1-419E-87D6-3C952DFD8B31}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
               <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.JSONs.ConnectByProxy">
+                <SSIS:Parameter SSIS:Name="LocalHostJSONs_ConnectByProxy">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{E87084BE-A554-4095-80AB-4D15C9AD4787}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
@@ -1296,10 +1295,9 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.LocalHost.JSONs.ConnectionString">
+                <SSIS:Parameter SSIS:Name="LocalHostJSONs_ConnectionString">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{1B6FBA8C-675D-496B-B612-2293E7982A3F}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
@@ -1739,32 +1737,16 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">410</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">435</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{93C2C4E6-C12A-4B7E-BC16-79795A49E385}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6EA13F6A-AE9D-4AB2-9A8F-F0300BC150AF}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="CM.SimpleNexus.bak.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\WARNING VIRUS DETECTED\duna training files\Project\FTP Files\SimpleNexus\SimpleNexus.bak</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="Pkg_Zekiyos_Gebresilassie_LendingWise.dtsx">
               <SSIS:Properties>
