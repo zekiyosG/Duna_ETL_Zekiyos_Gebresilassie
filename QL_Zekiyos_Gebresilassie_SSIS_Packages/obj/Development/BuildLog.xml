@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Zekiyos_Gebresilassie_SSIS_Packages</Name>
-    <LastWriteTime>2020-09-21T19:05:52.5053696Z</LastWriteTime>
+    <LastWriteTime>2020-09-23T03:02:28.4821036Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,17 +18,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_LendingPad.dtsx</Name>
-      <LastWriteTime>2020-09-21T19:01:29.6794579Z</LastWriteTime>
+      <LastWriteTime>2020-09-23T02:04:02.0962847Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_UberWriter.dtsx</Name>
-      <LastWriteTime>2020-09-17T02:59:24.1898641Z</LastWriteTime>
+      <LastWriteTime>2020-09-23T03:02:35.4121645Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_SimpleNexus.dtsx</Name>
-      <LastWriteTime>2020-09-21T19:21:59.3414847Z</LastWriteTime>
+      <LastWriteTime>2020-09-23T03:02:43.4625592Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -38,7 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Zekiyos_Gebresilassie_Quicken_Loan_Master.dtsx</Name>
-      <LastWriteTime>2020-09-15T05:32:46.7311528Z</LastWriteTime>
+      <LastWriteTime>2020-09-21T20:28:23.1394015Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

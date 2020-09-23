@@ -74,7 +74,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/17 21:55:33  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2020/09/22 20:05:32  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/17/2020 9:55:34 PM</DTS:VariableValue>
+        DTS:DataType="7">9/22/2020 8:05:33 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
