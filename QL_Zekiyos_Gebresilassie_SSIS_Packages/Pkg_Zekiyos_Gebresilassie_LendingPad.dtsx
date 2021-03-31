@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="486"
-  DTS:VersionGUID="{34AA3EB8-C9BE-46F6-9E9C-C248843BD8CC}">
+  DTS:VersionBuild="488"
+  DTS:VersionGUID="{DA11F8D3-58D4-4E95-B85D-DEE205AA1B31}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -26,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varBody">
       <DTS:VariableValue
-        DTS:DataType="8">2020/09/28 17:17:38  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
+        DTS:DataType="8">2021/03/18 16:19:40  LendingQB_Quicken Loan ETL Error</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -37,7 +37,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarFileDestinationPath">
       <DTS:VariableValue
-        DTS:DataType="8">D:\WARNING VIRUS DETECTED\duna training files\Project\ArchivedFile\LendingPad\LendingPad_2020_09_28 17 17 38.json</DTS:VariableValue>
+        DTS:DataType="8">D:\WARNING VIRUS DETECTED\duna training files\Project\ArchivedFile\LendingPad\LendingPad_2021_03_18 16 19 40.json</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -156,7 +156,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="VarRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/28/2020 5:17:38 PM</DTS:VariableValue>
+        DTS:DataType="7">3/18/2021 4:19:41 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -257,14 +257,35 @@
           Language="CSharp"
           ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::VarFromEmail,User::VarPassword,User::VarSmtpClient,User::VarSmtpServerPort,User::varSubject,User::VarToEmail">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_d8976dbe84bc4395a5465d5521c0042e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_d8976dbe84bc4395a5465d5521c0042e")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -665,35 +686,14 @@ namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_d8976dbe84bc4395a5465d5521c0042e")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_d8976dbe84bc4395a5465d5521c0042e")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -14156,6 +14156,15 @@ UnderwritingReceivedDate	 datetime
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::VarFromEmail,User::VarPassword,User::VarSmtpClient,User::VarSmtpServerPort,User::varSubject,User::VarToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -14274,35 +14283,6 @@ UnderwritingReceivedDate	 datetime
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
-    "ings")]
-
-namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_d8976dbe84bc4395a5465d5521c0042e.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -14555,6 +14535,35 @@ namespace ST_d8976dbe84bc4395a5465d5521c0042e
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Settings.get_Default():ST_d8976dbe84bc4395a5465d5521c0042e.Properties.Sett" +
+    "ings")]
+
+namespace ST_d8976dbe84bc4395a5465d5521c0042e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -14584,15 +14593,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -14986,14 +14986,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34.8857215964073,0"
+              EndConnector="34.8857215964071,0"
               Start="0,0"
-              End="27.3857215964073,0">
+              End="27.3857215964071,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="27.3857215964073,0" />
+                    End="27.3857215964071,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15032,14 +15032,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="71.5714327194246,0"
+              EndConnector="71.5714327194249,0"
               Start="0,0"
-              End="64.0714327194246,0">
+              End="64.0714327194249,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="64.0714327194246,0" />
+                    End="64.0714327194249,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15055,7 +15055,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="208.8,41.6"
           Id="Package.EventHandlers[OnError]\LendingPad_EST_Error_Log"
@@ -15083,7 +15083,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15097,49 +15099,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="194.4,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\DC_Insurance_Company"
-          TopLeft="642.228582011438,305.117651337984" />
+          TopLeft="645.085724917238,305.117651337984" />
         <NodeLayout
           Size="228,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\Lookup_AddMarketSourceName"
-          TopLeft="943.571444640354,58.3088243471714" />
+          TopLeft="946.428587546154,58.3088243471714" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\OLE DB_StagingTable"
-          TopLeft="62.1428582011438,308.176474910294" />
+          TopLeft="82.1428585417418,308.941180803372" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\Derived Column"
-          TopLeft="389.642863778436,55.4411772481301" />
+          TopLeft="392.500006684236,55.4411772481301" />
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\OLE DB_Json"
-          TopLeft="76.4285727301422,48.9411771569698" />
+          TopLeft="79.2857156359419,48.9411771569698" />
         <NodeLayout
           Size="237.6,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\Fuzzy Lookup_MotgageCrossWolk"
-          TopLeft="931.457155422776,304.352945444906" />
+          TopLeft="934.314298328576,304.352945444906" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\CondSplt_Remove_test"
-          TopLeft="640.000010899135,56.5882360877463" />
+          TopLeft="642.857153804935,56.5882360877463" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad\Row Count"
-          TopLeft="391.428578094561,309.70588669645" />
+          TopLeft="394.285721000361,309.70588669645" />
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[Row Count Output 1]"
-          TopLeft="391.428578094561,329.741180803372">
+          TopLeft="394.285721000361,330.123533749911">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-148.485719893417,0"
+              EndConnector="-131.342862458619,0"
               Start="0,0"
-              End="-140.985719893417,0">
+              End="-123.842862458619,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-140.985719893417,0" />
+                    End="-123.842862458619,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15150,7 +15152,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[OLE DB Source Output]"
-          TopLeft="217.228572730142,72.9911772025499">
+          TopLeft="220.085715635942,72.9911772025499">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15172,7 +15174,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[Lookup Match Output]"
-          TopLeft="1053.91430003156,99.9088243471714">
+          TopLeft="1056.77144293736,99.9088243471714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15196,7 +15198,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[Fuzzy Lookup Output]"
-          TopLeft="931.457155422776,325.535298391445">
+          TopLeft="934.314298328576,325.535298391445">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15218,7 +15220,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[Derived Column Output1]"
-          TopLeft="542.442863778436,76.8147066679382">
+          TopLeft="545.300006684236,76.8147066679382">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15240,7 +15242,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[Derived Column Output]"
-          TopLeft="642.228582011438,328.211769017217">
+          TopLeft="645.085724917238,328.211769017217">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15262,7 +15264,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PullJsonData, Transforn &amp; LoadInto Staging_DB\DFT_LendingPad.Paths[BorrowerNameWithOutTest]"
-          TopLeft="827.200010899135,78.2485302174589">
+          TopLeft="830.057153804935,78.2485302174589">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
